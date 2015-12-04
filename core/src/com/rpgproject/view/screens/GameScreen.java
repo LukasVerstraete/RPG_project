@@ -1,6 +1,11 @@
 package com.rpgproject.view.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.rpgproject.RPGGame;
 
 /**
@@ -9,10 +14,13 @@ import com.rpgproject.RPGGame;
 public abstract class GameScreen implements Screen {
 
     protected RPGGame game;
+    protected Stage stage;
 
     public GameScreen(RPGGame game)
     {
         this.game = game;
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
@@ -31,7 +39,7 @@ public abstract class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height, false);
     }
 
     @Override
@@ -51,6 +59,6 @@ public abstract class GameScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        stage.dispose();
     }
 }
