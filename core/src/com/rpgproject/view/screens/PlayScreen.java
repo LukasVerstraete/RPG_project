@@ -1,5 +1,6 @@
 package com.rpgproject.view.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.rpgproject.RPGGame;
 
 /**
@@ -20,6 +21,6 @@ public class PlayScreen extends GameScreen
 
     @Override
     public void draw() {
-
+        Gdx.gl.glClearColor(1, 0, 0, 1);
     }
 }
