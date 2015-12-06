@@ -20,12 +20,11 @@ public abstract class GameScreen implements Screen {
     {
         this.game = game;
         stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
     public void show() {
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     public abstract void update(float delta);

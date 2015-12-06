@@ -29,7 +29,6 @@ public class RPGGame extends Game {
 
 	@Override
 	public void render () {
-
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		getScreen().render(Gdx.graphics.getDeltaTime());
@@ -39,5 +38,10 @@ public class RPGGame extends Game {
 	public void startGame()
 	{
 		controller.startGame();
+	}
+
+	public void loadMainMenu()
+	{
+		controller.loadMainMenu();
 	}
 }
