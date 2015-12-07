@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="environment" tilewidth="32" tileheight="32" tilecount="100">
+  <image source="../sprites/tileMapEnvironment.png" width="320" height="320"/>
+ </tileset>
+ <layer name="region" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjZmBgYB7Fo5jKmAkNo8sz4sGjekeWXgU0jE8vAIuxA0U=
+  </data>
+ </layer>
+ <layer name="fringe" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzjYWBg4CETc1OARwHxgAUNE5LHh+mll1pAHo8cLxDrkKkXBJTJ0MsLpbUpsBcfwKVXDErrUmCvJJRmBWI2NDlRAnqVoDQ/EAsQUIsPSFGgFwQAEbIEAw==
+  </data>
+ </layer>
+ <layer name="plants" width="15" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA3YKdAjSAReolRMwpGAQwAAHRYADE=
+  </data>
+ </layer>
+ <layer name="collision" width="15" height="20" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA7iEbDhOTR1WLTg80McuVxuYtaZuMTp8RefICW9tJKLymAUnMA8hIKqw==
+  </data>
+ </layer>
+</map>
