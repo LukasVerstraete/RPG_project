@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.rpgproject.RPGGame;
+import com.rpgproject.resources.Resources;
 import com.rpgproject.utils.Utils;
 import com.rpgproject.view.buttons.MainMenuButton;
 
@@ -26,7 +27,7 @@ public class MainScreen extends GameScreen {
         table.setDebug(RPGGame.DEBUG);
         table.align(Align.center);
 
-        MainMenuButton newGameButton = new MainMenuButton("New game");
+        MainMenuButton newGameButton = new MainMenuButton(Resources.getString("newGame"));
         newGameButton.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -34,7 +35,7 @@ public class MainScreen extends GameScreen {
             }
         });
 
-        MainMenuButton continueGameButton = new MainMenuButton("Continue Game");
+        MainMenuButton continueGameButton = new MainMenuButton(Resources.getString("loadGame"));
 
         table.add(newGameButton).fill().padBottom(30).width(250).height(50);
         table.row();

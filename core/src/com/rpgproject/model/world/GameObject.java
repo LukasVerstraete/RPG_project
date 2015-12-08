@@ -1,6 +1,5 @@
-package com.rpgproject.model;
+package com.rpgproject.model.world;
 
-import com.badlogic.gdx.Game;
 import com.rpgproject.controller.ObjectController;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package com.rpgproject.controller;
 
-import com.badlogic.gdx.Game;
-import com.rpgproject.model.GameObject;
+import com.rpgproject.model.world.GameObject;
 
 /**
  * Created by lukas on 7-12-2015.
