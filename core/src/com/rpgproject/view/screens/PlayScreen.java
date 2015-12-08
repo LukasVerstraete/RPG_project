@@ -66,15 +66,15 @@ public class PlayScreen extends GameScreen
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
             camera.translate(5, 0);
         if(Gdx.input.isKeyPressed(Input.Keys.UP))
-            camera.translate(0, -5);
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
             camera.translate(0, 5);
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
+            camera.translate(0, -5);
     }
 
     @Override
     public void draw() {
         camera.update();
-        camera.zoom = 1f;
+        camera.zoom = 0.2f;
         mapRenderer.setView(camera);
         mapRenderer.render();
         stage.draw();
