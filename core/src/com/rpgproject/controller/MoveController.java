@@ -8,9 +8,9 @@ import com.rpgproject.model.world.Entity;
  */
 public class MoveController extends ObjectController {
 
-    private float speed;
+    protected float speed;
 
-    private Vector2 direction = new Vector2(0,0);
+    protected Vector2 direction = new Vector2(0,0);
 
     public MoveController(Entity entity, float speed)
     {

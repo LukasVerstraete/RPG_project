@@ -7,18 +7,19 @@ import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.rpgproject.RPGGame;
+import com.rpgproject.controller.MainController;
 
 /**
  * Created by Lukas on 1-12-2015.
  */
 public abstract class GameScreen implements Screen {
 
-    protected RPGGame game;
+    protected MainController controller;
     protected Stage stage;
 
-    public GameScreen(RPGGame game)
+    public GameScreen(MainController controller)
     {
-        this.game = game;
+        this.controller = controller;
         stage = new Stage();
     }
 

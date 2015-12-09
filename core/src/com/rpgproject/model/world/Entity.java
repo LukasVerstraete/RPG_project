@@ -1,6 +1,7 @@
 package com.rpgproject.model.world;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 /**
  * Created by Lukas on 8-12-2015.

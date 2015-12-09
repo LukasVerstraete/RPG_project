@@ -1,6 +1,8 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.Game;
 import com.rpgproject.RPGGame;
+import com.rpgproject.model.world.CameraObject;
 import com.rpgproject.model.world.World;
 import com.rpgproject.view.screens.MainScreen;
 import com.rpgproject.view.screens.PlayScreen;
@@ -14,13 +16,16 @@ public class MainController {
     PlayScreen playScreen;
 
     private RPGGame game;
-    private World world;
+
+    private GameController gameController;
 
     public MainController(RPGGame game)
     {
         this.game = game;
-        mainScreen = new MainScreen(this.game);
-        playScreen = new PlayScreen(this.game);
+        mainScreen = new MainScreen(this);
+        playScreen = new PlayScreen(this);
+
+        gameController = new GameController();
         loadMainMenu();
     }
 
@@ -36,11 +41,11 @@ public class MainController {
 
     public void updateWorld(float delta)
     {
-        world.update(delta);
+        gameController.updateWorld(delta);
     }
 
     public void drawWorld()
     {
-        world.draw();
+        gameController.drawWorld();
     }
 }

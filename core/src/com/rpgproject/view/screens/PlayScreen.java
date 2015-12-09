@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.rpgproject.RPGGame;
+import com.rpgproject.controller.MainController;
 import com.rpgproject.resources.Resources;
 import com.rpgproject.view.buttons.MainMenuButton;
 
@@ -22,18 +23,18 @@ import com.rpgproject.view.buttons.MainMenuButton;
 public class PlayScreen extends GameScreen
 {
 
-    public PlayScreen(RPGGame game)
+    public PlayScreen(MainController controller)
     {
-        super(game);
+        super(controller);
     }
 
     @Override
     public void update(float delta) {
-
+        controller.updateWorld(delta);
     }
 
     @Override
     public void draw() {
-
+        controller.drawWorld();
     }
 }

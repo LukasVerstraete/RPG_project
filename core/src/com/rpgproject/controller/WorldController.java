@@ -12,7 +12,7 @@ public class WorldController extends ObjectController {
         super(world);
     }
 
-    public World getObject()
+    protected World getObject()
     {
         return (World) object;
     }
