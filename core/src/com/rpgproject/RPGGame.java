@@ -5,6 +5,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.controller.MainController;
 import com.rpgproject.resources.Resources;
@@ -20,12 +21,17 @@ public class RPGGame extends Game {
     SpriteBatch batch;
     Texture img;
 
+    Sprite sprite;
+
     @Override
     public void create() {
         initResources();
         controller = new MainController(this);
         batch = new SpriteBatch();
         Gdx.gl.glClearColor(1, 1, 1, 1);
+
+        sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
+        sprite.setPosition(200, 200);
     }
 
     public void initResources() {
@@ -39,8 +45,9 @@ public class RPGGame extends Game {
     @Override
     public void render() {
         //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        batch.begin();
         getScreen().render(Gdx.graphics.getDeltaTime());
+        batch.begin();
+        sprite.draw(batch);
         batch.end();
     }
 

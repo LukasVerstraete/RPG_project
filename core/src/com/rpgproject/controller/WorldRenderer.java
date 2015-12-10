@@ -32,7 +32,11 @@ public class WorldRenderer extends WorldController {
     public void draw(SpriteBatch batch) {
         renderer.setView(camera.getCamera());
         renderer.render(backgroundLayers);
+        batch.setProjectionMatrix(camera.getCamera().combined);
+        batch.begin();
+        getObject().getPlayer().setPosition(camera.getPosition());
         getObject().getPlayer().getSprite().draw(batch);
+        batch.end();
         renderer.render(foregroundLayers);
     }
 }
