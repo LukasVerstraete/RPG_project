@@ -1,5 +1,6 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.model.world.GameObject;
 
 /**
@@ -15,5 +16,5 @@ public abstract class ObjectController {
     }
 
     public abstract void update(float delta);
-    public abstract void draw();
+    public abstract void draw(SpriteBatch batch);
 }

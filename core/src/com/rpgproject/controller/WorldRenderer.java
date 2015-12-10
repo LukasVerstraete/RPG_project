@@ -1,5 +1,6 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.model.world.CameraObject;
@@ -28,9 +29,10 @@ public class WorldRenderer extends WorldController {
     }
 
     @Override
-    public void draw() {
+    public void draw(SpriteBatch batch) {
         renderer.setView(camera.getCamera());
         renderer.render(backgroundLayers);
+        getObject().getPlayer().getSprite().draw(batch);
         renderer.render(foregroundLayers);
     }
 }

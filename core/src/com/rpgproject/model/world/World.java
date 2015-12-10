@@ -12,9 +12,11 @@ public class World extends GameObject {
 
     private TiledMap currentMap;
     private TmxMapLoader mapLoader;
+    private Player player;
 
-    public World()
+    public World(Player player)
     {
+        this.player = new Player();
         mapLoader = new TmxMapLoader();
         currentMap = mapLoader.load(Resources.getMapPath("entrance"));
     }
@@ -22,5 +24,10 @@ public class World extends GameObject {
     public TiledMap getCurrentMap()
     {
         return currentMap;
+    }
+
+    public Player getPlayer()
+    {
+        return player;
     }
 }

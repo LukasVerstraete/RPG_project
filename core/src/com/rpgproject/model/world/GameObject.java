@@ -1,5 +1,6 @@
 package com.rpgproject.model.world;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.controller.ObjectController;
 
 import java.util.ArrayList;
@@ -30,15 +31,15 @@ public abstract class GameObject {
         }
     }
 
-    public void draw()
+    public void draw(SpriteBatch batch)
     {
         for(ObjectController controller : controllers)
         {
-            controller.draw();
+            controller.draw(batch);
         }
         for(GameObject object : children)
         {
-            object.draw();
+            object.draw(batch);
         }
     }
 

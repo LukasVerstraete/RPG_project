@@ -1,7 +1,9 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.model.world.CameraObject;
+import com.rpgproject.model.world.Player;
 import com.rpgproject.model.world.World;
 
 /**
@@ -18,10 +20,12 @@ public class GameController {
     public GameController()
     {
         camera = new CameraObject(0, 0);
-        cameraMovementController = new CameraController(camera, 40f, 0.3f);
+        cameraMovementController = new CameraController(camera, 100f, 0.3f);
         camera.addController(cameraMovementController);
 
-        world = new World();
+        Player player = new Player();
+
+        world = new World(player);
         worldRenderer = new WorldRenderer(world, camera);
         world.addController(worldRenderer);
 
@@ -35,8 +39,8 @@ public class GameController {
         world.update(delta);
     }
 
-    public void drawWorld()
+    public void drawWorld(SpriteBatch batch)
     {
-        world.draw();
+        world.draw(batch);
     }
 }

@@ -30,7 +30,6 @@ public class CameraController extends MoveController {
         input();
         super.update(delta);
         setInBounds();
-        System.out.println(getObject().getPosition());
         syncCamera();
     }
 

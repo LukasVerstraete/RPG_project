@@ -1,5 +1,6 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.model.world.World;
 
 /**
@@ -23,7 +24,7 @@ public class WorldController extends ObjectController {
     }
 
     @Override
-    public void draw() {
+    public void draw(SpriteBatch batch) {
 
     }
 }

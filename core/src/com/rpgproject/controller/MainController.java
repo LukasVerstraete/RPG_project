@@ -1,6 +1,7 @@
 package com.rpgproject.controller;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.RPGGame;
 import com.rpgproject.model.world.CameraObject;
 import com.rpgproject.model.world.World;
@@ -46,6 +47,6 @@ public class MainController {
 
     public void drawWorld()
     {
-        gameController.drawWorld();
+        gameController.drawWorld(game.getSpriteBatch());
     }
 }

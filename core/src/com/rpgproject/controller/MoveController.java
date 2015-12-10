@@ -1,5 +1,6 @@
 package com.rpgproject.controller;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.Entity;
 
@@ -33,7 +34,7 @@ public class MoveController extends ObjectController {
     }
 
     @Override
-    public void draw() {
+    public void draw(SpriteBatch batch) {
 
     }
 
