@@ -46,9 +46,6 @@ public class RPGGame extends Game {
     public void render() {
         //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         getScreen().render(Gdx.graphics.getDeltaTime());
-        batch.begin();
-        sprite.draw(batch);
-        batch.end();
     }
 
     public SpriteBatch getSpriteBatch()

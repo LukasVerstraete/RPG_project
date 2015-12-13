@@ -33,8 +33,9 @@ public class WorldRenderer extends WorldController {
         renderer.setView(camera.getCamera());
         renderer.render(backgroundLayers);
         batch.setProjectionMatrix(camera.getCamera().combined);
+        //System.out.println(getObject().getPlayer().getSprite().getX() + "  " + getObject().getPlayer().getSprite().getY());
+        System.out.println(getObject().getPlayer().getPosition());
         batch.begin();
-        getObject().getPlayer().setPosition(camera.getPosition());
         getObject().getPlayer().getSprite().draw(batch);
         batch.end();
         renderer.render(foregroundLayers);

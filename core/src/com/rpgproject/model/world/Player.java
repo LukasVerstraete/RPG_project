@@ -15,8 +15,14 @@ public class Player extends Entity {
 
     public Player()
     {
+        this(0,0);
+    }
+
+    public Player(float x, float y)
+    {
+        super(x, y);
         sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
-        sprite.setPosition(0,0);
+        sprite.setPosition(0, 0);
     }
 
     @Override

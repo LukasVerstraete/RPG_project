@@ -2,21 +2,24 @@ package com.rpgproject.controller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.CameraObject;
+import com.rpgproject.model.world.Entity;
+import com.rpgproject.model.world.Player;
 
 /**
  * Created by lukas on 8-12-2015.
  */
 public class CameraController extends MoveController {
 
+    private Player player;
     private float zoom;
 
-    public CameraController(CameraObject camera, float speed, float zoom)
+    public CameraController(CameraObject camera, Player player, float speed, float zoom)
     {
         super(camera, speed);
+        this.player = player;
         this.zoom = zoom;
     }
 
@@ -27,10 +30,15 @@ public class CameraController extends MoveController {
 
     @Override
     public void update(float delta) {
-        input();
+        follow();
         super.update(delta);
         setInBounds();
         syncCamera();
+    }
+
+    private void follow()
+    {
+        getObject().setPosition(player.getPosition());
     }
 
     private void setInBounds()
@@ -56,19 +64,6 @@ public class CameraController extends MoveController {
         getObject().getCamera().zoom = this.zoom;
     }
 
-    private void input() {
-        Vector2 direction = new Vector2(0, 0);
-        if (Gdx.input.isKeyPressed(Input.Keys.UP))
-            direction.y = 1;
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
-            direction.y = -1;
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            direction.x = -1;
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            direction.x = 1;
-
-        this.setDirection(direction);
-    }
     public void setZoom(float zoom)
     {
         this.zoom = zoom;
