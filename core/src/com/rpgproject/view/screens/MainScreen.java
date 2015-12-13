@@ -1,15 +1,12 @@
 package com.rpgproject.view.screens;
 
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.rpgproject.RPGGame;
-import com.rpgproject.controller.MainController;
+import com.rpgproject.controller.newControllers.MainController;
 import com.rpgproject.resources.Resources;
-import com.rpgproject.utils.Utils;
 import com.rpgproject.view.buttons.MainMenuButton;
 
 /**

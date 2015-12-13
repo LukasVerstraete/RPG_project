@@ -1,7 +1,7 @@
 package com.rpgproject.model.world;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.rpgproject.controller.ObjectController;
+import com.rpgproject.controller.backup.ObjectController;
 
 import java.util.ArrayList;
 

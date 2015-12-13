@@ -3,11 +3,7 @@ package com.rpgproject.view.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.rpgproject.RPGGame;
-import com.rpgproject.controller.MainController;
+import com.rpgproject.controller.newControllers.MainController;
 
 /**
  * Created by Lukas on 1-12-2015.

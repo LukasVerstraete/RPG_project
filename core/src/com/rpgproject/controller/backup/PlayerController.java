@@ -1,8 +1,7 @@
-package com.rpgproject.controller;
+package com.rpgproject.controller.backup;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.Entity;
 import com.rpgproject.model.world.Player;
@@ -10,7 +9,7 @@ import com.rpgproject.model.world.Player;
 /**
  * Created by Lukas on 12-12-2015.
  */
-public class PlayerController extends MoveController {
+public class PlayerController extends com.rpgproject.controller.MoveController {
 
     public PlayerController(Entity entity, float speed) {
         super(entity, speed);

@@ -1,15 +1,12 @@
-package com.rpgproject.controller;
+package com.rpgproject.controller.newControllers;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.RPGGame;
-import com.rpgproject.model.world.CameraObject;
-import com.rpgproject.model.world.World;
+import com.rpgproject.controller.newControllers.GameController;
 import com.rpgproject.view.screens.MainScreen;
 import com.rpgproject.view.screens.PlayScreen;
 
 /**
- * Created by Lukas on 4-12-2015.
+ * Created by Lukas on 13-12-2015.
  */
 public class MainController {
 
@@ -49,4 +46,5 @@ public class MainController {
     {
         gameController.drawWorld(game.getSpriteBatch());
     }
+
 }
