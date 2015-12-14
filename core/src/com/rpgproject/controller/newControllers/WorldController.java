@@ -10,14 +10,16 @@ import com.rpgproject.model.world.World;
  */
 public class WorldController {
 
+    private PlayerController playerController;
+
     public WorldController(World world)
     {
-
+        playerController = new PlayerController();
     }
 
     public void update(float delta, World world)
     {
-
+        playerController.update(delta, world);
     }
 
 

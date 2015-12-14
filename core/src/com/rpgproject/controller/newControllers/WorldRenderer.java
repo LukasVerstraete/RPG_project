@@ -12,7 +12,7 @@ public class WorldRenderer {
 
     private OrthogonalTiledMapRenderer renderer;
     private int[] backgroundLayers = {0};
-    private int[] foregroundLayers = {1, 2};
+    private int[] foregroundLayers = {1, 2, 3};
 
     public WorldRenderer(World world)
     {

@@ -12,14 +12,18 @@ import com.rpgproject.model.world.World;
  */
 public class CameraController {
 
-    public CameraController(OrthographicCamera camera, World world)
+    private float zoom = 1.0f;
+
+    public CameraController(OrthographicCamera camera, float zoom, World world)
     {
+        this.zoom = zoom;
         update(Gdx.graphics.getDeltaTime(), camera, world);
     }
 
     public void update(float delta, OrthographicCamera camera, World world)
     {
-        //setPosition(camera, world.getPlayer().getPosition());
+        syncCamera(camera);
+        setPosition(camera, world.getPlayer().getPosition());
         setInBounds(camera, world);
         camera.update();
     }
@@ -44,5 +48,15 @@ public class CameraController {
     private void setPosition(OrthographicCamera camera, Vector2 position)
     {
         camera.position.set(position.x, position.y, 0);
+    }
+
+    private void syncCamera(OrthographicCamera camera)
+    {
+        camera.zoom = zoom;
+    }
+
+    public void setZoom(float zoom)
+    {
+        this.zoom = zoom;
     }
 }

@@ -1,5 +1,7 @@
 package com.rpgproject.controller.newControllers;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgproject.model.world.World;
 
@@ -8,23 +10,37 @@ import com.rpgproject.model.world.World;
  */
 public class GameController {
 
-    private World world;
-    private WorldRenderer renderer;
     private MainController mainController;
+
+    private World world;
+    private OrthographicCamera camera;
+
+    private WorldController worldController;
+    private CameraController cameraController;
+
+    private WorldRenderer renderer;
 
     public GameController(MainController controller)
     {
         this.mainController = controller;
+
         world = new World();
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        worldController = new WorldController(world);
+        cameraController = new CameraController(camera, 0.3f, world);
+
+        renderer = new WorldRenderer(world);
     }
 
     public void updateWorld(float delta)
     {
-
+        worldController.update(delta, world);
+        cameraController.update(delta, camera, world);
     }
 
     public void drawWorld(SpriteBatch batch)
     {
-
+        renderer.render(batch, world, camera);
     }
 }

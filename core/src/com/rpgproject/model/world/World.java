@@ -1,26 +1,34 @@
 package com.rpgproject.model.world;
 
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.resources.Resources;
 
+import java.util.ArrayList;
+
 /**
  * Created by lukas on 7-12-2015.
  */
-public class World extends GameObject {
+public class World {
 
 
     private TiledMap currentMap;
     private TmxMapLoader mapLoader;
     private Player player;
+    private ArrayList<Rectangle> colliders;
 
     public World()
     {
-        player = new Player();
+        player = new Player(20, 20);
         mapLoader = new TmxMapLoader();
         currentMap = mapLoader.load(Resources.getMapPath("entrance"));
+        colliders = new ArrayList<Rectangle>();
+        populateCollisionObjects();
     }
 
     public TiledMap getCurrentMap()
@@ -53,9 +61,40 @@ public class World extends GameObject {
         }
     }
 
+    private void populateCollisionObjects()
+    {
+        MapObjects collisionObjects = currentMap.getLayers().get("collision").getObjects();
+        for(MapObject object : collisionObjects)
+        {
+            RectangleMapObject rect = (RectangleMapObject) object;
+            System.out.println(rect.getRectangle().x + " " + rect.getRectangle().y);
+            colliders.add(rect.getRectangle());
+        }
+    }
+
+    public boolean checkCollision(Rectangle testRect)
+    {
+        if(getMapBounds().contains(testRect))
+        {
+            for(Rectangle rect : colliders)
+            {
+                if(rect.overlaps(testRect))
+                {
+                    return true;
+                }
+            }
+        }
+        else
+            return true;
+
+
+        return false;
+    }
+
     public Rectangle getMapBounds()
     {
         setMapBounds(currentMap);
         return mapBounds;
     }
+    ////////////////////////////////////////////////////////////////
 }

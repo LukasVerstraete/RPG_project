@@ -20,14 +20,9 @@ public class Player extends Entity {
 
     public Player(float x, float y)
     {
-        super(x, y);
+        super(x, y, 32, 32, 100.0f);
         sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
         sprite.setPosition(0, 0);
-    }
-
-    @Override
-    public void draw(SpriteBatch batch) {
-
     }
 
     public Sprite getSprite()

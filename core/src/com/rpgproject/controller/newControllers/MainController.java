@@ -23,8 +23,9 @@ public class MainController {
         mainScreen = new MainScreen(this);
         playScreen = new PlayScreen(this);
 
-        gameController = new GameController();
-        loadMainMenu();
+        gameController = new GameController(this);
+        //loadMainMenu();
+        startGame();
     }
 
     public void loadMainMenu()
