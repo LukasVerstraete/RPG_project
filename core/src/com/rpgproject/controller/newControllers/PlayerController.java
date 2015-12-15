@@ -31,7 +31,6 @@ public class PlayerController {
         predictedRect.setPosition(newPosition);
         if(!world.checkCollision(predictedRect))
         {
-            System.out.println("no collision");
             player.setPosition(newPosition);
             syncSprite(player);
         }
