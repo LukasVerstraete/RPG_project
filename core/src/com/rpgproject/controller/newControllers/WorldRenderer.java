@@ -11,12 +11,12 @@ import com.rpgproject.model.world.World;
 public class WorldRenderer {
 
     private OrthogonalTiledMapRenderer renderer;
-    private int[] backgroundLayers = {0};
-    private int[] foregroundLayers = {1, 2, 3};
+    private int[] backgroundLayers = {0, 1};
+    private int[] foregroundLayers = {2};
 
     public WorldRenderer(World world)
     {
-        renderer = new OrthogonalTiledMapRenderer(world.getCurrentMap());
+        renderer = new OrthogonalTiledMapRenderer(world.getCurrentMap().getMap());
     }
 
     public void render(SpriteBatch batch, World world, OrthographicCamera camera)

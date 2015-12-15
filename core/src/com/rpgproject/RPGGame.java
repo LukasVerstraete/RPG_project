@@ -37,6 +37,7 @@ public class RPGGame extends Game {
         Resources.addString("newGame", "New Game");
         Resources.addString("loadGame", "Load Game");
         Resources.addMap("entrance", "inkomhal.tmx");
+        Resources.addMap("testMap", "testmap.tmx");
         Resources.addImage("character", "character_lopen_1.png");
     }
 

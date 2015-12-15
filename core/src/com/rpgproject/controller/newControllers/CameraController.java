@@ -30,7 +30,7 @@ public class CameraController {
 
     private void setInBounds(OrthographicCamera camera, World world)
     {
-        Rectangle bounds = world.getMapBounds();
+        Rectangle bounds = world.getCurrentMap().getMapBounds();
         float halfWidth = bounds.getWidth() / 2;
         float halfHeight = bounds.getHeight() / 2;
         Vector2 position = new Vector2(camera.position.x, camera.position.y);

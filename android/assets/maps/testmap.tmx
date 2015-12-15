@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="32" tileheight="32" nextobjectid="13">
+ <tileset firstgid="1" name="region" tilewidth="32" tileheight="32" tilecount="100">
+  <image source="sprites/tileMapEnvironment.png" width="320" height="320"/>
+ </tileset>
+ <layer name="region" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMBKGD7995QabgqqmqqvruAU/eCo0=
+  </data>
+ </layer>
+ <layer name="otherbackground" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BgACsQsw2AvfxALDAA9oKAFI3NJzZMqR32xIYpLcKe2DBFVjea9igD7AQwuYBQvAgSwOQCWsQLsWkMX7yQE87U8Au54Uzr8m0UkAeGar1AiXvIqRcIuYcegFp5aLSOGwWkAgD5lgQp
+  </data>
+ </layer>
+ <layer name="foreground" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <objectgroup name="collision">
+  <object id="1" x="265" y="460" width="238" height="13"/>
+  <object id="2" x="264" y="556" width="241" height="13"/>
+  <object id="3" x="30" y="527" width="35" height="17"/>
+  <object id="4" x="159" y="329" width="32" height="21"/>
+  <object id="5" x="321" y="232" width="29" height="22"/>
+  <object id="6" x="481" y="331" width="31" height="19"/>
+  <object id="7" x="610" y="398" width="28" height="17"/>
+  <object id="8" x="703" y="556" width="31" height="19"/>
+  <object id="9" x="668" y="779" width="35" height="18"/>
+  <object id="10" x="481" y="750" width="31" height="16"/>
+  <object id="11" x="321" y="874" width="31" height="20"/>
+  <object id="12" x="160" y="747" width="31" height="21"/>
+ </objectgroup>
+</map>

@@ -81,6 +81,6 @@ public abstract class Entity {
 
     public Rectangle getBoundingBox()
     {
-        return new Rectangle(getX() + getWidth() / 2, getY(), getWidth() / 2, getHeight() / 2);
+        return new Rectangle(getX(), getY(), getWidth(), getHeight());
     }
 }

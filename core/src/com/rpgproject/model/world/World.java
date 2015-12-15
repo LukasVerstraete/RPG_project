@@ -16,24 +16,23 @@ import java.util.ArrayList;
  */
 public class World {
 
-
-    private TiledMap currentMap;
-    private TmxMapLoader mapLoader;
     private Player player;
-    private ArrayList<Rectangle> colliders;
+    private WorldMap currentMap;
 
     public World()
     {
         player = new Player(20, 20);
-        mapLoader = new TmxMapLoader();
-        currentMap = mapLoader.load(Resources.getMapPath("entrance"));
-        colliders = new ArrayList<Rectangle>();
-        populateCollisionObjects();
+        currentMap = new WorldMap("testMap");
     }
 
-    public TiledMap getCurrentMap()
+    public WorldMap getCurrentMap()
     {
         return currentMap;
+    }
+
+    public boolean checkCollision(Rectangle testRect)
+    {
+        return currentMap.checkCollision(testRect);
     }
 
     public Player getPlayer()
@@ -41,60 +40,4 @@ public class World {
         return player;
     }
 
-    ////////////////////////////temporary///////////////////////////
-    //TODO: move to map class;
-
-    private Rectangle mapBounds = new Rectangle();
-
-    public void setMapBounds(TiledMap map)
-    {
-        if(map != null)
-        {
-            MapProperties properties = map.getProperties();
-            int mapWidth = properties.get("width", Integer.class);
-            int mapHeight = properties.get("height", Integer.class);
-            int tilePixelWidth = properties.get("tilewidth", Integer.class);
-            int tilePixelHeight = properties.get("tileheight", Integer.class);
-            int mapPixelWidth = mapWidth * tilePixelWidth;
-            int mapPixelHeight = mapHeight * tilePixelHeight;
-            this.mapBounds.set(0,0,mapPixelWidth, mapPixelHeight);
-        }
-    }
-
-    private void populateCollisionObjects()
-    {
-        MapObjects collisionObjects = currentMap.getLayers().get("collision").getObjects();
-        for(MapObject object : collisionObjects)
-        {
-            RectangleMapObject rect = (RectangleMapObject) object;
-            System.out.println(rect.getRectangle().x + " " + rect.getRectangle().y);
-            colliders.add(rect.getRectangle());
-        }
-    }
-
-    public boolean checkCollision(Rectangle testRect)
-    {
-        if(getMapBounds().contains(testRect))
-        {
-            for(Rectangle rect : colliders)
-            {
-                if(rect.overlaps(testRect))
-                {
-                    return true;
-                }
-            }
-        }
-        else
-            return true;
-
-
-        return false;
-    }
-
-    public Rectangle getMapBounds()
-    {
-        setMapBounds(currentMap);
-        return mapBounds;
-    }
-    ////////////////////////////////////////////////////////////////
 }
