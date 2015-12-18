@@ -3,6 +3,7 @@ package com.rpgproject.controller.newControllers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.World;
 
 /**
@@ -42,5 +43,10 @@ public class GameController {
     public void drawWorld(SpriteBatch batch)
     {
         renderer.render(batch, world, camera);
+    }
+
+    public void movePlayer(float x, float y)
+    {
+        world.getPlayer().setDirection(new Vector2(x, y));
     }
 }

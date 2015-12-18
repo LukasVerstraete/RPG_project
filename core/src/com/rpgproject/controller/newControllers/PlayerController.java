@@ -14,7 +14,6 @@ public class PlayerController {
 
     public void update(float delta, World world)
     {
-        world.getPlayer().setDirection(input());
         move(delta, world);
     }
 
@@ -39,20 +38,5 @@ public class PlayerController {
     private void syncSprite(Player player)
     {
         player.getSprite().setPosition(player.getX(), player.getY());
-    }
-
-    private Vector2 input()
-    {
-        Vector2 direction = new Vector2(0, 0);
-        if (Gdx.input.isKeyPressed(Input.Keys.UP))
-            direction.y = 1;
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
-            direction.y = -1;
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            direction.x = -1;
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            direction.x = 1;
-
-        return direction;
     }
 }

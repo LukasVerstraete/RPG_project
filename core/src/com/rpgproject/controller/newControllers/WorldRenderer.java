@@ -28,10 +28,7 @@ public class WorldRenderer {
         renderer.setView(camera);
         renderer.render(backgroundLayers);
         batch.setProjectionMatrix(camera.combined);
-        //System.out.println(getObject().getPlayer().getSprite().getX() + "  " + getObject().getPlayer().getSprite().getY());
-        //System.out.println(getObject().getPlayer().getPosition());
         batch.begin();
-        //world.getPlayer().getSprite().draw(batch);
         batch.draw(world.getPlayer().getAnimation().getKeyFrame(elapsedTime, true), world.getPlayer().getX(), world.getPlayer().getY());
         batch.end();
         renderer.render(foregroundLayers);

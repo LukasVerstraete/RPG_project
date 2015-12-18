@@ -48,4 +48,36 @@ public class MainController {
         gameController.drawWorld(game.getSpriteBatch());
     }
 
+    public void movePlayerUp(boolean move)
+    {
+        if(move)
+            gameController.movePlayer(0, 1);
+        else
+            gameController.movePlayer(0, 0);
+    }
+
+    public void movePlayerDown(boolean move)
+    {
+        if(move)
+            gameController.movePlayer(0, -1);
+        else
+            gameController.movePlayer(0, 0);
+    }
+
+    public void movePlayerLeft(boolean move)
+    {
+        if(move)
+            gameController.movePlayer(-1, 0);
+        else
+            gameController.movePlayer(0, 0);
+    }
+
+    public void movePlayerRight(boolean move)
+    {
+        if(move)
+            gameController.movePlayer(1, 0);
+        else
+            gameController.movePlayer(0, 0);
+    }
+
 }
