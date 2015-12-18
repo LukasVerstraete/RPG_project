@@ -89,15 +89,15 @@ public class PlayScreen extends GameScreen
         });
 
         table.add();
-        table.add(upButton);
+        table.add(upButton).width(50).height(50);
         table.add();
         table.row();
-        table.add(leftButton);
+        table.add(leftButton).width(50).height(50);
         table.add();
-        table.add(rightButton);
+        table.add(rightButton).width(50).height(50);
         table.row();
         table.add();
-        table.add(downButton);
+        table.add(downButton).width(50).height(50);
         table.add();
 
         stage.addActor(table);

@@ -25,7 +25,6 @@ public class PlayerController {
         float distance = delta * player.getSpeed();
         Vector2 copy_dir = new Vector2(player.getDirection());
         Vector2 newPosition = oldPosition.mulAdd(copy_dir, distance);
-        //player.setPosition(newPosition);
         Rectangle predictedRect = player.getBoundingBox();
         predictedRect.setPosition(newPosition);
         if(!world.checkCollision(predictedRect))

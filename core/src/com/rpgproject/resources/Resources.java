@@ -11,6 +11,7 @@ public class Resources {
     private static HashMap<String, String> images = new HashMap<String, String>();
     private static HashMap<String, String> maps = new HashMap<String, String>();
     private static HashMap<String, String> skins = new HashMap<String, String>();
+    private static HashMap<String, String> atlasses = new HashMap<String, String>();
 
     public static void addString(String key, String string)
     {
@@ -36,6 +37,12 @@ public class Resources {
             skins.put(key, "skins/" + skinPath);
     }
 
+    public static void addAtlas(String key, String atlasPath)
+    {
+        if(atlasPath != null && key != null)
+            atlasses.put(key, atlasPath);
+    }
+
     public static String getString(String key)
     {
         return strings.get(key);
@@ -54,5 +61,10 @@ public class Resources {
     public static String getSkinPath(String key)
     {
         return skins.get(key);
+    }
+
+    public static String getAtlasPath(String key)
+    {
+        return atlasses.get(key);
     }
 }
