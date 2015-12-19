@@ -39,7 +39,8 @@ public class RPGGame extends Game {
         Resources.addMap("entrance", "inkomhal.tmx");
         Resources.addMap("testMap", "testmap.tmx");
         Resources.addImage("character", "character_lopen_1.png");
-        Resources.addImage("playerAtlas", "spritesheets/walkFront.atlas");
+        Resources.addAtlas("playerAtlas", "sprites/spritesheets/walkFront.atlas");
+        Resources.addAtlas("navigationUI" , "sprites/ui/controlsPack/controls.atlas");
     }
 
     @Override

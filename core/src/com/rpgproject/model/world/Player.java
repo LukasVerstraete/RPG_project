@@ -28,7 +28,7 @@ public class Player extends Entity {
         super(x, y, 26, 16, 100.0f);
         sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
         sprite.setPosition(0, 0);
-        textureAtlas = new TextureAtlas(Gdx.files.internal(Resources.getImagePath("playerAtlas")));
+        textureAtlas = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlas")));
         animation = new Animation(1f / 2f, textureAtlas.getRegions());
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
     }

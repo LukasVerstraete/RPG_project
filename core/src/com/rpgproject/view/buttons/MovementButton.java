@@ -10,6 +10,6 @@ import com.rpgproject.view.skins.MenuSkin;
 public class MovementButton extends ImageButton {
 
     public MovementButton() {
-        super(new MenuSkin());
+        super();
     }
 }

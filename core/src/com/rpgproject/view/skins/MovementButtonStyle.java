@@ -1,0 +1,30 @@
+package com.rpgproject.view.skins;
+
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.rpgproject.resources.Resources;
+import com.rpgproject.view.buttons.MovementButton;
+
+/**
+ * Created by Lukas on 19-12-2015.
+ */
+public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
+
+    public enum Direction {
+        UP, DOWN, LEFT, RIGHT
+    }
+
+    public MovementButtonStyle(Direction direction)
+    {
+        super();
+        init(direction);
+    }
+
+    private void init(Direction type)
+    {
+        TextureAtlas atlas = new TextureAtlas(Resources.getAtlasPath("navigationUI"));
+        Skin skin = new Skin(atlas);
+        up = skin.getDrawable("buttonUp");
+    }
+}
