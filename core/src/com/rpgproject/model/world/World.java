@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.resources.Resources;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by lukas on 7-12-2015.
@@ -18,16 +19,26 @@ public class World {
 
     private Player player;
     private WorldMap currentMap;
+    private HashMap<String, WorldMap> maps;
 
     public World()
     {
         player = new Player(20, 20);
-        currentMap = new WorldMap("testMap");
+        maps = new HashMap<String, WorldMap>();
+        maps.put("testMap", new WorldMap("testMap"));
+        maps.put("entrance", new WorldMap("entrance"));
+        setCurrentMap("testMap");
     }
 
     public WorldMap getCurrentMap()
     {
         return currentMap;
+    }
+
+    public void setCurrentMap(String map)
+    {
+        if(maps.get(map) != null)
+            currentMap = maps.get(map);
     }
 
     public boolean checkCollision(Rectangle testRect)

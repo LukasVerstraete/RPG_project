@@ -25,6 +25,20 @@ public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
     {
         TextureAtlas atlas = new TextureAtlas(Resources.getAtlasPath("navigationUI"));
         Skin skin = new Skin(atlas);
-        up = skin.getDrawable("buttonUp");
+        switch (type)
+        {
+            case UP:
+                up = skin.getDrawable("buttonUp");
+                break;
+            case DOWN:
+                up = skin.getDrawable("buttonDown");
+                break;
+            case LEFT:
+                up = skin.getDrawable("buttonLeft");
+                break;
+            case RIGHT:
+                up = skin.getDrawable("buttonRight");
+                break;
+        }
     }
 }

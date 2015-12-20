@@ -7,6 +7,8 @@ import com.badlogic.gdx.utils.Align;
 import com.rpgproject.RPGGame;
 import com.rpgproject.controller.newControllers.MainController;
 import com.rpgproject.view.buttons.MainMenuButton;
+import com.rpgproject.view.buttons.MovementButton;
+import com.rpgproject.view.skins.MovementButtonStyle;
 
 /**
  * Created by Lukas on 4-12-2015.
@@ -27,10 +29,10 @@ public class PlayScreen extends GameScreen
         table.setDebug(RPGGame.DEBUG);
         table.align(Align.bottom | Align.right);
 
-        MainMenuButton upButton = new MainMenuButton("U");
-        MainMenuButton downButton = new MainMenuButton("D");
-        MainMenuButton leftButton = new MainMenuButton("L");
-        MainMenuButton rightButton = new MainMenuButton("R");
+        MovementButton upButton = new MovementButton(MovementButtonStyle.Direction.UP);
+        MovementButton downButton = new MovementButton(MovementButtonStyle.Direction.DOWN);
+        MovementButton leftButton = new MovementButton(MovementButtonStyle.Direction.LEFT);
+        MovementButton rightButton = new MovementButton(MovementButtonStyle.Direction.RIGHT);
 
         upButton.addListener(new ClickListener() {
             @Override

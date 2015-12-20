@@ -7,6 +7,8 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
+import com.rpgproject.model.world.triggers.Trigger;
+import com.rpgproject.model.world.triggers.TriggerFactory;
 import com.rpgproject.resources.Resources;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class WorldMap {
 
     private TiledMap map;
     private ArrayList<Rectangle> colliders;
+    private ArrayList<Trigger> triggers;
     private Rectangle mapBounds;
 
 
@@ -26,8 +29,10 @@ public class WorldMap {
         this.map = new TmxMapLoader().load(Resources.getMapPath(map));
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
+        triggers = new ArrayList<Trigger>();
         setMapBounds();
         populateCollisionObjects();
+        populateTriggers();
     }
 
     public void setMapBounds()
@@ -54,6 +59,17 @@ public class WorldMap {
             System.out.println(rect.getRectangle().x + " " + rect.getRectangle().y);
             colliders.add(rect.getRectangle());
         }
+    }
+
+    public void populateTriggers()
+    {
+        TriggerFactory triggerFactory = new TriggerFactory(this);
+        this.triggers = triggerFactory.getTriggers();
+    }
+
+    public ArrayList<Trigger> getTriggers()
+    {
+        return triggers;
     }
 
     public boolean checkCollision(Rectangle testRect)

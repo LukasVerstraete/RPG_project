@@ -11,15 +11,18 @@ import com.rpgproject.model.world.World;
 public class WorldController {
 
     private PlayerController playerController;
+    private TriggerController triggerController;
 
     public WorldController(World world)
     {
         playerController = new PlayerController();
+        triggerController = new TriggerController();
     }
 
     public void update(float delta, World world)
     {
         playerController.update(delta, world);
+        triggerController.update(delta, world);
     }
 
 

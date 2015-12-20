@@ -25,6 +25,7 @@ public class WorldRenderer {
     public void render(SpriteBatch batch, World world, OrthographicCamera camera)
     {
         elapsedTime += Gdx.graphics.getDeltaTime();
+        renderer.setMap(world.getCurrentMap().getMap());
         renderer.setView(camera);
         renderer.render(backgroundLayers);
         batch.setProjectionMatrix(camera.combined);
