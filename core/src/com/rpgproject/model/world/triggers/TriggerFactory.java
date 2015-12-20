@@ -44,7 +44,6 @@ public class TriggerFactory {
     {
         Trigger trigger = null;
         String type = triggerFormat[0];
-        System.out.println(triggerFormat[0] + "  " + triggerFormat[1] + "  " + triggerFormat[2] + "  " + triggerFormat[3] + "  ");
         if(type.equals("00"))
         {
             String target = triggerFormat[1];

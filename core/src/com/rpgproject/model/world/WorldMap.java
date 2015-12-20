@@ -1,5 +1,7 @@
 package com.rpgproject.model.world;
 
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
@@ -10,6 +12,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.model.world.triggers.Trigger;
 import com.rpgproject.model.world.triggers.TriggerFactory;
 import com.rpgproject.resources.Resources;
+import com.rpgproject.utils.Utils;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,9 @@ public class WorldMap {
     private ArrayList<Rectangle> colliders;
     private ArrayList<Trigger> triggers;
     private Rectangle mapBounds;
+    private int[] backgroundLayers;
+    private int[] dynamicLayers;
+    private int[] foregroundLayers;
 
 
     public WorldMap(String map)
@@ -30,6 +36,7 @@ public class WorldMap {
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
         triggers = new ArrayList<Trigger>();
+        sortLayers();
         setMapBounds();
         populateCollisionObjects();
         populateTriggers();
@@ -56,7 +63,6 @@ public class WorldMap {
         for(MapObject object : collisionObjects)
         {
             RectangleMapObject rect = (RectangleMapObject) object;
-            System.out.println(rect.getRectangle().x + " " + rect.getRectangle().y);
             colliders.add(rect.getRectangle());
         }
     }
@@ -91,6 +97,38 @@ public class WorldMap {
         return false;
     }
 
+    private void sortLayers()
+    {
+        ArrayList<Integer> backgroundLayers = new ArrayList<Integer>();
+        ArrayList<Integer> dynamicLayers = new ArrayList<Integer>();
+        ArrayList<Integer> foregroundLayers = new ArrayList<Integer>();
+        int index = 0;
+        MapLayers layers = map.getLayers();
+        for(MapLayer layer : layers)
+        {
+            if(layer.getProperties().containsKey("order"))
+            {
+                String order = (String)(layer.getProperties().get("order"));
+                System.out.println(order);
+                if(order.equals("B"))
+                {
+                    backgroundLayers.add(index);
+                }
+                else if(order.equals("D"))
+                {
+                    dynamicLayers.add(index);
+                }
+                else if(order.equals("F")) {
+                    foregroundLayers.add(index);
+                }
+            }
+            index++;
+        }
+        this.backgroundLayers = Utils.toArray(backgroundLayers);
+        this.dynamicLayers = Utils.toArray(dynamicLayers);
+        this.foregroundLayers = Utils.toArray(foregroundLayers);
+    }
+
     public TiledMap getMap()
     {
         return map;
@@ -99,5 +137,40 @@ public class WorldMap {
     public Rectangle getMapBounds()
     {
         return mapBounds;
+    }
+
+    public int[] getBackgroundLayers()
+    {
+        return backgroundLayers;
+    }
+
+    public int[] getDynamicLayers()
+    {
+        return dynamicLayers;
+    }
+
+    public int[] getForegroundLayers()
+    {
+        return foregroundLayers;
+    }
+
+    public int getWidth()
+    {
+        return map.getProperties().get("width", Integer.class);
+    }
+
+    public int getHeight()
+    {
+        return map.getProperties().get("height", Integer.class);
+    }
+
+    public int getTileWidth()
+    {
+        return map.getProperties().get("tileWidth", Integer.class);
+    }
+
+    public int getTileHeight()
+    {
+        return map.getProperties().get("tileHeight", Integer.class);
     }
 }

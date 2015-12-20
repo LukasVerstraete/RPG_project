@@ -3,12 +3,18 @@
  <tileset firstgid="1" name="region" tilewidth="32" tileheight="32" tilecount="100">
   <image source="sprites/tileMapEnvironment.png" width="320" height="320"/>
  </tileset>
- <layer name="region" width="30" height="30">
+ <layer name="background" width="30" height="30">
+  <properties>
+   <property name="order" value="B"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJztzbENAAAIA6Ca/v+zqz/IwEyTFADgoTm8wEcL/fcKew==
   </data>
  </layer>
  <layer name="otherbackground" width="30" height="30">
+  <properties>
+   <property name="order" value="D"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2BgACsQsw2AvfxALDAA9oKAFI3NJzZMqR32xIYpLcKe2DBFVjea9igD7AQwuYBQvAgSwOQCWsQLsWkMX7yQE87U8Au54Uzr8m0UkAeGar1AiXvIqRcIuYcegFp5aLSOGwWkAgD5lgQp
   </data>
@@ -33,6 +39,6 @@
   <object id="12" x="160" y="747" width="31" height="21"/>
  </objectgroup>
  <objectgroup name="triggers">
-  <object id="13" name="00_entrance_20_20" x="256" y="608" width="95.2727" height="95.7883"/>
+  <object id="13" name="00_entrance_20_20" x="276.75" y="635.875" width="51" height="39.375"/>
  </objectgroup>
 </map>
