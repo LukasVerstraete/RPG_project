@@ -45,8 +45,7 @@ public class WorldRenderer {
 
     private void renderDynamicForeground(SpriteBatch batch, World world)
     {
-        int end = world.getCurrentMap().getHeight() - (int)(world.getCurrentMap().getMapBounds().getHeight() - world.getPlayer().getY()) / world.getCurrentMap().getHeight() + 1;
-        System.out.println(end);
+        int end = (int)world.getPlayer().getY() / world.getCurrentMap().getTileHeight();
         for(int i = 0; i < world.getCurrentMap().getDynamicLayers().length; i++)
         {
             TiledMapTileLayer layer = (TiledMapTileLayer)world.getCurrentMap().getMap().getLayers().get(world.getCurrentMap().getDynamicLayers()[i]);
@@ -64,11 +63,11 @@ public class WorldRenderer {
 
     private void renderDynamicBackground(SpriteBatch batch, World world)
     {
-        int start = world.getCurrentMap().getHeight() - (int)(world.getCurrentMap().getMapBounds().getHeight() - world.getPlayer().getY()) / world.getCurrentMap().getHeight();
+        int start = (int)world.getPlayer().getY() / world.getCurrentMap().getTileHeight();
         for(int i = 0; i < world.getCurrentMap().getDynamicLayers().length; i++)
         {
             TiledMapTileLayer layer = (TiledMapTileLayer)world.getCurrentMap().getMap().getLayers().get(world.getCurrentMap().getDynamicLayers()[i]);
-            for(int y = start - 1; y < world.getCurrentMap().getHeight(); y++)
+            for(int y = start + 1; y < world.getCurrentMap().getHeight(); y++)
             {
                 for(int x = 0; x < world.getCurrentMap().getWidth(); x++)
                 {

@@ -12,18 +12,18 @@ import com.rpgproject.model.world.WorldMap;
 public class ChangeMapTrigger extends Trigger {
 
     private String target;
-    private Vector2 targetPosition;
+    private String targetPosition;
 
-    public ChangeMapTrigger(Rectangle actionField, String target, float x, float y) {
+    public ChangeMapTrigger(Rectangle actionField, String targetMap, String targetLocation) {
         super(actionField);
-        this.target = target;
-        targetPosition = new Vector2(x, y);
+        this.target = targetMap;
+        targetPosition = targetLocation;
     }
 
     @Override
     public void act(float delta, World world) {
         world.setCurrentMap(target);
-        world.getPlayer().setPosition(targetPosition);
-        System.out.println("acting");
+        System.out.println(world.getCurrentMap().name + " " + target);
+        world.getPlayer().setPosition(world.getCurrentMap().getLocation(targetPosition));
     }
 }

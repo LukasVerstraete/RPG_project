@@ -47,9 +47,8 @@ public class TriggerFactory {
         if(type.equals("00"))
         {
             String target = triggerFormat[1];
-            float x = Float.parseFloat(triggerFormat[2]);
-            float y = Float.parseFloat(triggerFormat[3]);
-            trigger = new ChangeMapTrigger(actionField, target, x, y);
+            String targetLocation = triggerFormat[2];
+            trigger = new ChangeMapTrigger(actionField, target, targetLocation);
         }
         return trigger;
     }

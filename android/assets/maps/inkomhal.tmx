@@ -1,36 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="32" tileheight="32" nextobjectid="17">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="32" tileheight="32" nextobjectid="32">
  <tileset firstgid="1" name="environment" tilewidth="32" tileheight="32" tilecount="100">
   <image source="../sprites/tileMapEnvironment.png" width="320" height="320"/>
  </tileset>
  <layer name="region" width="15" height="20">
+  <properties>
+   <property name="order" value="B"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJxjZmBgYB7Fo5jKmAkNo8sz4sGjekeWXgU0jE8vAIuxA0U=
+   eJxjZmBgYB7Fo3gQYSYsGF0NIw48qnd46wUAqwUC7A==
   </data>
  </layer>
- <layer name="chairs_background" width="15" height="20">
+ <layer name="background" width="15" height="20">
+  <properties>
+   <property name="order" value="B"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2DkAcUBtFOJzvbS2z50QM2wBgC2CACo
+   eJzjYWBg4CETc1OAR8EoGMlAaaAdQCLA5155IvQrEpBXQMO4AABsrgJe
   </data>
  </layer>
- <layer name="chairs_foreground" width="15" height="20">
+ <layer name="dynamic" width="15" height="20">
+  <properties>
+   <property name="order" value="D"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BoAl4g5qNAvzKZdoKAJAX2kgNg/uTFqwo/oMTN5IQVLQAA7jQAvA==
+   eJxjYBgFo4D6gAULJkYNsjpBAnagy0uR5dJRMNgBLJ5B8QsA3cQAlA==
+  </data>
+ </layer>
+ <layer name="foreground2" width="15" height="20">
+  <properties>
+   <property name="order" value="F"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwxmwYMHEqMGFidU7CkYBLQAA6AAAWQ==
+  </data>
+ </layer>
+ <layer name="foreground" width="15" height="20">
+  <properties>
+   <property name="order" value="F"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B6gBWI2ZD47ATUI8vzA7EAFd0iSkCeD4h5ydSrBMSSZOrFB2iplxL/goA4A2b8EgtA8UyN+AUA0KMBcA==
   </data>
  </layer>
  <objectgroup name="collision">
-  <object id="2" name="glassWall_1" x="-0.25" y="314.125" width="128" height="5.5"/>
-  <object id="5" name="glassWall_2" x="256.25" y="313.75" width="224" height="5.5"/>
-  <object id="6" name="flowerPot_1" x="40.75" y="337" width="14" height="14.25"/>
-  <object id="8" name="flowerPot_1" x="329.5" y="336.75" width="14" height="14.25"/>
-  <object id="9" name="counter" x="96" y="352" width="32" height="224"/>
-  <object id="10" name="chairs" x="351.902" y="361.435" width="32" height="86.5"/>
-  <object id="11" name="chairs" x="351.989" y="489.359" width="32" height="86.5"/>
-  <object id="12" name="chairs" x="288.054" y="424.348" width="32" height="23.5"/>
-  <object id="13" name="chairs" x="287.896" y="488.458" width="32" height="23.5"/>
-  <object id="14" name="chairs" x="320.043" y="361.435" width="31.7636" height="22.5883"/>
-  <object id="15" name="flag" x="448.182" y="591" width="31.7273" height="16.7273"/>
-  <object id="16" name="glassWall_1" x="-0.25" y="314.125" width="128" height="5.5"/>
+  <object id="17" x="73" y="364.5" width="13" height="13.5"/>
+  <object id="18" x="328.5" y="364" width="14" height="14.5"/>
+  <object id="19" x="449" y="366.5" width="29" height="16"/>
+  <object id="20" x="448" y="623" width="31" height="16.5"/>
+  <object id="21" x="392" y="618.5" width="16" height="16.5"/>
+  <object id="22" x="95.5" y="400" width="32" height="207"/>
+  <object id="24" x="0" y="349.5" width="160" height="2.5"/>
+  <object id="25" x="288.5" y="348.5" width="190.5" height="2.5"/>
+  <object id="26" x="-0.5" y="52" width="480.5" height="12"/>
+  <object id="27" x="351" y="408" width="32" height="22.5"/>
+  <object id="28" x="383" y="408" width="32.5" height="56"/>
+  <object id="29" x="384" y="536.5" width="32" height="55"/>
+  <object id="30" x="351.5" y="536.5" width="31.5" height="22.5"/>
  </objectgroup>
  <objectgroup name="triggers"/>
+ <objectgroup name="locations">
+  <object id="31" name="entrancedoor" x="214.5" y="583.5" width="18.5" height="17"/>
+ </objectgroup>
 </map>

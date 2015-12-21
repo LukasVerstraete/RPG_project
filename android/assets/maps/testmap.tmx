@@ -16,12 +16,15 @@
    <property name="order" value="D"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BgACsQsw2AvfxALDAA9oKAFI3NJzZMqR32xIYpLcKe2DBFVjea9igD7AQwuYBQvAgSwOQCWsQLsWkMX7yQE87U8Au54Uzr8m0UkAeGar1AiXvIqRcIuYcegFp5aLSOGwWkAgD5lgQp
+   eJxjYBgFo2AU0AtIDbQDhiEgNkxHetgPB/8LEsBDEQzGeCE3nAejX0bByARDtV4YbO4ZSmA07CgDACFLAhU=
   </data>
  </layer>
  <layer name="foreground" width="30" height="30">
+  <properties>
+   <property name="order" value="F"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+   eJxjYBgFo2BgACsQsw2AvfxALDAA9tIDEBum1A57YsN0sIT9aNqjDLATwOSC4RQv1PALOeE8XNLYKKAeGKr1wnAqD+gNRsNuFJAKAOZbAhU=
   </data>
  </layer>
  <objectgroup name="collision">
@@ -39,6 +42,7 @@
   <object id="12" x="160" y="747" width="31" height="21"/>
  </objectgroup>
  <objectgroup name="triggers">
-  <object id="13" name="00_entrance_20_20" x="276.75" y="635.875" width="51" height="39.375"/>
+  <object id="13" name="00_entrance_entrancedoor" x="276.75" y="635.875" width="51" height="39.375"/>
  </objectgroup>
+ <objectgroup name="locations"/>
 </map>

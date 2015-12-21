@@ -9,12 +9,14 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.triggers.Trigger;
 import com.rpgproject.model.world.triggers.TriggerFactory;
 import com.rpgproject.resources.Resources;
 import com.rpgproject.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Lukas on 15-12-2015.
@@ -24,22 +26,29 @@ public class WorldMap {
     private TiledMap map;
     private ArrayList<Rectangle> colliders;
     private ArrayList<Trigger> triggers;
+    private HashMap<String, Rectangle> locations;
     private Rectangle mapBounds;
     private int[] backgroundLayers;
     private int[] dynamicLayers;
     private int[] foregroundLayers;
 
 
+    public String name;
+
+
     public WorldMap(String map)
     {
+        this.name = map;
         this.map = new TmxMapLoader().load(Resources.getMapPath(map));
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
         triggers = new ArrayList<Trigger>();
+        locations = new HashMap<String, Rectangle>();
         sortLayers();
         setMapBounds();
         populateCollisionObjects();
         populateTriggers();
+        populateLocations();
     }
 
     public void setMapBounds()
@@ -73,9 +82,39 @@ public class WorldMap {
         this.triggers = triggerFactory.getTriggers();
     }
 
+    public void populateLocations()
+    {
+
+        MapObjects locationObjects = map.getLayers().get("locations").getObjects();
+        for(MapObject object : locationObjects)
+        {
+            RectangleMapObject rect = (RectangleMapObject) object;
+            String name = rect.getName();
+
+            addLocation(name, rect.getRectangle());
+        }
+    }
+
     public ArrayList<Trigger> getTriggers()
     {
         return triggers;
+    }
+
+    public void addLocation(String name, Rectangle location)
+    {
+        if(name != null && location != null)
+        {
+            System.out.println(name + " " + location);
+            locations.put(name, location);
+        }
+
+    }
+
+    public Vector2 getLocation(String name)
+    {
+        System.out.println(this.name);
+        Rectangle rect = locations.get(name);
+        return new Vector2(rect.getX(), rect.getY());
     }
 
     public boolean checkCollision(Rectangle testRect)
@@ -109,7 +148,6 @@ public class WorldMap {
             if(layer.getProperties().containsKey("order"))
             {
                 String order = (String)(layer.getProperties().get("order"));
-                System.out.println(order);
                 if(order.equals("B"))
                 {
                     backgroundLayers.add(index);
@@ -166,11 +204,11 @@ public class WorldMap {
 
     public int getTileWidth()
     {
-        return map.getProperties().get("tileWidth", Integer.class);
+        return map.getProperties().get("tilewidth", Integer.class);
     }
 
     public int getTileHeight()
     {
-        return map.getProperties().get("tileHeight", Integer.class);
+        return map.getProperties().get("tileheight", Integer.class);
     }
 }
