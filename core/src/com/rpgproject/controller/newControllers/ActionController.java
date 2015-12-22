@@ -12,6 +12,7 @@ public class ActionController {
 
     public void update(float delta, World world, GameController controller)
     {
+
         if(perform)
         {
             for (Action action : world.getActions())

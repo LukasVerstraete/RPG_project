@@ -22,7 +22,7 @@ public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
 
     private void init(Direction type)
     {
-        TextureAtlas atlas = new TextureAtlas(Resources.getAtlasPath("navigationUI"));
+        TextureAtlas atlas = new TextureAtlas(Resources.getFile("navigationUI"));
         Skin skin = new Skin(atlas);
         switch (type)
         {

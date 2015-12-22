@@ -1,5 +1,8 @@
 package com.rpgproject.resources;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+
 import java.util.HashMap;
 
 /**
@@ -12,6 +15,7 @@ public class Resources {
     private static HashMap<String, String> maps = new HashMap<String, String>();
     private static HashMap<String, String> skins = new HashMap<String, String>();
     private static HashMap<String, String> atlasses = new HashMap<String, String>();
+    private static HashMap<String, FileHandle> files = new HashMap<String, FileHandle>();
 
     public static void addString(String key, String string)
     {
@@ -43,6 +47,12 @@ public class Resources {
             atlasses.put(key, atlasPath);
     }
 
+    public static void addFile(String key, String filePath)
+    {
+        if(key != null && filePath != null)
+            files.put(key, Gdx.files.internal(filePath));
+    }
+
     public static String getString(String key)
     {
         return strings.get(key);
@@ -66,5 +76,10 @@ public class Resources {
     public static String getAtlasPath(String key)
     {
         return atlasses.get(key);
+    }
+
+    public static FileHandle getFile (String key)
+    {
+        return files.get(key);
     }
 }

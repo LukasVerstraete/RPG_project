@@ -13,8 +13,8 @@ import com.rpgproject.resources.Resources;
  */
 public class GameLabel extends Label {
     public GameLabel(CharSequence text) {
-        super(text, new Skin(Gdx.files.internal(Resources.getSkinPath("label"))));
-        getStyle().background = new NinePatchDrawable(new NinePatch(new Texture(Resources.getImagePath("label")), 10, 10, 10, 10));
+        super(text, new Skin(Resources.getFile("labelSkin")));
+        getStyle().background = new NinePatchDrawable(new NinePatch(new Texture(Resources.getFile("label9Patch")), 10, 10, 10, 10));
         setVisible(false);
     }
 }

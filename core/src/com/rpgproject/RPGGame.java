@@ -30,23 +30,24 @@ public class RPGGame extends Game {
         controller = new MainController(this);
         batch = new SpriteBatch();
         Gdx.gl.glClearColor(1, 1, 1, 1);
-
-        sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
-        sprite.setPosition(200, 200);
     }
 
     public void initResources() {
-        Resources.addSkin("default", "syncopate/uiskin.json");
-        Resources.addSkin("label", "default/uiskin.json");
+        Resources.addFile("defaultSkin", "skins/syncopate/uiskin.json");
+        Resources.addFile("labelSkin", "skins/default/uiskin.json");
         Resources.addString("newGame", "New Game");
         Resources.addString("loadGame", "Load Game");
-        Resources.addMap("entrance", "inkomhal.tmx");
-        Resources.addMap("testMap", "testmap.tmx");
-        Resources.addImage("character", "character_lopen_1.png");
-        Resources.addImage("label", "ui/labelNinePatch.png");
-        Resources.addAtlas("playerAtlasFront", "sprites/spritesheets/walkFront.atlas");
-        Resources.addAtlas("playerAtlasBack", "sprites/spritesheets/walkBack.atlas");
-        Resources.addAtlas("navigationUI", "sprites/ui/controlsPack/controls.atlas");
+        Resources.addFile("entrance", "maps/inkomhal.tmx");
+        Resources.addFile("testMap", "maps/testmap.tmx");
+        Resources.addFile("character", "character_lopen_1.png");
+        Resources.addFile("label9Patch", "sprites/ui/labelNinePatch.png");
+        Resources.addFile("playerAtlasFront", "sprites/spritesheets/walkFront.atlas");
+        Resources.addFile("playerAtlasBack", "sprites/spritesheets/walkBack.atlas");
+        Resources.addFile("playerAtlasLeft", "sprites/spritesheets/walkLeft.atlas");
+        Resources.addFile("playerAtlasRight", "sprites/spritesheets/walkRight.atlas");
+        Resources.addFile("navigationUI", "sprites/ui/controlsPack/controls.atlas");
+
+        Resources.addFile("walkSound", "audio/Footsteps_on_Cement-Tim_Fryer.mp3");
         initStrings();
     }
 
@@ -66,7 +67,6 @@ public class RPGGame extends Game {
 
     @Override
     public void render() {
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         getScreen().render(Gdx.graphics.getDeltaTime());
     }
 

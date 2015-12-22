@@ -16,7 +16,6 @@ import com.rpgproject.resources.Resources;
  */
 public class Player extends Entity {
 
-    private Sprite sprite;
     private Animator animator;
 
     public Player()
@@ -27,25 +26,26 @@ public class Player extends Entity {
     public Player(float x, float y)
     {
         super(x, y, 26, 16, 100.0f);
-        sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
-        sprite.setPosition(0, 0);
-        TextureAtlas textureAtlasFront = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlasFront")));
-        TextureAtlas textureAtlasBack = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlasBack")));
+        TextureAtlas textureAtlasFront = new TextureAtlas(Resources.getFile("playerAtlasFront"));
+        TextureAtlas textureAtlasBack = new TextureAtlas(Resources.getFile("playerAtlasBack"));
+        TextureAtlas textureAtlasLeft = new TextureAtlas(Resources.getFile("playerAtlasLeft"));
+        TextureAtlas textureAtlasRight = new TextureAtlas(Resources.getFile("playerAtlasRight"));
         float updateSpeed = 1f / 5f;
         Animation animationFront = new Animation(updateSpeed, textureAtlasFront.getRegions());
         Animation animationBack = new Animation(updateSpeed, textureAtlasBack.getRegions());
+        Animation animationLeft = new Animation(updateSpeed, textureAtlasLeft.getRegions());
+        Animation animationRight = new Animation(updateSpeed, textureAtlasRight.getRegions());
         animationFront.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         animationBack.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        animationLeft.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        animationRight.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         animator = new Animator();
         animator.addAnimation(1, animationFront);
         animator.addAnimation(3, animationBack);
+        animator.addAnimation(2, animationLeft);
+        animator.addAnimation(4, animationRight);
         animator.setDirection(1);
         animator.setState(Animator.State.IDLE);
-    }
-
-    public Sprite getSprite()
-    {
-        return sprite;
     }
 
     public TextureRegion getRegion(float delta)

@@ -35,7 +35,7 @@ public class WorldMap {
 
     public WorldMap(String map)
     {
-        this.map = new TmxMapLoader().load(Resources.getMapPath(map));
+        this.map = new TmxMapLoader().load(Resources.getFile(map).path());
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
         triggers = new ArrayList<Trigger>();

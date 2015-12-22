@@ -13,7 +13,7 @@ public class MenuSkin extends Skin {
 
     public MenuSkin()
     {
-        super(Gdx.files.internal(Resources.getSkinPath("default")));
+        super(Resources.getFile("defaultSkin"));
     }
 
 }
