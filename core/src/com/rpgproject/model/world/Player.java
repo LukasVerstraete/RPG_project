@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.rpgproject.resources.Resources;
 
 /**
@@ -15,12 +17,11 @@ import com.rpgproject.resources.Resources;
 public class Player extends Entity {
 
     private Sprite sprite;
-    private TextureAtlas textureAtlas;
-    private Animation animation;
+    private Animator animator;
 
     public Player()
     {
-        this(0,0);
+        this(0, 0);
     }
 
     public Player(float x, float y)
@@ -28,9 +29,18 @@ public class Player extends Entity {
         super(x, y, 26, 16, 100.0f);
         sprite = new Sprite(new Texture(Gdx.files.internal(Resources.getImagePath("character"))));
         sprite.setPosition(0, 0);
-        textureAtlas = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlas")));
-        animation = new Animation(1f / 2f, textureAtlas.getRegions());
-        animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        TextureAtlas textureAtlasFront = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlasFront")));
+        TextureAtlas textureAtlasBack = new TextureAtlas(Gdx.files.internal(Resources.getAtlasPath("playerAtlasBack")));
+        float updateSpeed = 1f / 5f;
+        Animation animationFront = new Animation(updateSpeed, textureAtlasFront.getRegions());
+        Animation animationBack = new Animation(updateSpeed, textureAtlasBack.getRegions());
+        animationFront.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        animationBack.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        animator = new Animator();
+        animator.addAnimation(1, animationFront);
+        animator.addAnimation(3, animationBack);
+        animator.setDirection(1);
+        animator.setState(Animator.State.IDLE);
     }
 
     public Sprite getSprite()
@@ -38,13 +48,22 @@ public class Player extends Entity {
         return sprite;
     }
 
-    public Animation getAnimation()
+    public TextureRegion getRegion(float delta)
     {
-        return animation;
+        return animator.getRegion(delta);
+    }
+
+    public void setDirection(int direction)
+    {
+        animator.setDirection(direction);
+    }
+
+    public void setState(Animator.State state){
+        animator.setState(state);
     }
 
     @Override
     public Rectangle getBoundingBox() {
-        return new Rectangle(getX() + sprite.getWidth() / 2 - this.getWidth() / 2, this.getY(), getWidth(), getHeight());
+        return new Rectangle(getX() + (getRegion(0).getRegionWidth() - getWidth())/2, this.getY(), getWidth(), getHeight());
     }
 }

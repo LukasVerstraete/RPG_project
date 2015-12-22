@@ -23,7 +23,6 @@ public class ChangeMapTrigger extends Trigger {
     @Override
     public void act(float delta, World world) {
         world.setCurrentMap(target);
-        System.out.println(world.getCurrentMap().name + " " + target);
         world.getPlayer().setPosition(world.getCurrentMap().getLocation(targetPosition));
     }
 }

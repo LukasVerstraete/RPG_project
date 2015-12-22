@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="32" tileheight="32" nextobjectid="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="20" tilewidth="32" tileheight="32" nextobjectid="33">
  <tileset firstgid="1" name="environment" tilewidth="32" tileheight="32" tilecount="100">
   <image source="../sprites/tileMapEnvironment.png" width="320" height="320"/>
  </tileset>
@@ -16,7 +16,7 @@
    <property name="order" value="B"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzjYWBg4CETc1OAR8EoGMlAaaAdQCLA5155IvQrEpBXQMO4AABsrgJe
+   eJzjYWBg4CETc1OAR8EoGMpAaYD10xvgc688EfoVCcgroGFcAACengKA
   </data>
  </layer>
  <layer name="dynamic" width="15" height="20">
@@ -40,7 +40,7 @@
    <property name="order" value="F"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B6gBWI2ZD47ATUI8vzA7EAFd0iSkCeD4h5ydSrBMSSZOrFB2iplxL/goA4A2b8EgtA8UyN+AUA0KMBcA==
+   eJxjYBgFo4B6gBWI2ZD47ATUI8vzA7EAFd0iSkCeD4h5ydQLApIU6MUFaKmXUv+KM2DGL7EAFM/UiF8AnrMBTg==
   </data>
  </layer>
  <objectgroup name="collision">
@@ -58,7 +58,9 @@
   <object id="29" x="384" y="536.5" width="32" height="55"/>
   <object id="30" x="351.5" y="536.5" width="31.5" height="22.5"/>
  </objectgroup>
- <objectgroup name="triggers"/>
+ <objectgroup name="triggers">
+  <object id="32" name="01_leave" x="171.333" y="638" width="108" height="3.66667"/>
+ </objectgroup>
  <objectgroup name="locations">
   <object id="31" name="entrancedoor" x="214.5" y="583.5" width="18.5" height="17"/>
  </objectgroup>

@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.Align;
 import com.rpgproject.RPGGame;
 import com.rpgproject.controller.newControllers.MainController;
 import com.rpgproject.resources.Resources;
-import com.rpgproject.view.buttons.MainMenuButton;
+import com.rpgproject.view.ui.MainMenuButton;
 
 /**
  * Created by Lukas on 1-12-2015.

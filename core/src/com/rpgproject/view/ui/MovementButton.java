@@ -1,4 +1,4 @@
-package com.rpgproject.view.buttons;
+package com.rpgproject.view.ui;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;

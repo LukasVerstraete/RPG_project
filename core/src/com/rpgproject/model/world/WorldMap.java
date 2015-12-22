@@ -33,12 +33,8 @@ public class WorldMap {
     private int[] foregroundLayers;
 
 
-    public String name;
-
-
     public WorldMap(String map)
     {
-        this.name = map;
         this.map = new TmxMapLoader().load(Resources.getMapPath(map));
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
@@ -112,7 +108,6 @@ public class WorldMap {
 
     public Vector2 getLocation(String name)
     {
-        System.out.println(this.name);
         Rectangle rect = locations.get(name);
         return new Vector2(rect.getX(), rect.getY());
     }

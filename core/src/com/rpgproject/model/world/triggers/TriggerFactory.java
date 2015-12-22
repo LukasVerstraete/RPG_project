@@ -50,6 +50,11 @@ public class TriggerFactory {
             String targetLocation = triggerFormat[2];
             trigger = new ChangeMapTrigger(actionField, target, targetLocation);
         }
+        else if(type.equals("01"))
+        {
+            String string = triggerFormat[1];
+            trigger = new DialogTrigger(actionField, string);
+        }
         return trigger;
     }
 }

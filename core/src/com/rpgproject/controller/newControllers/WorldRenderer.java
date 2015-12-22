@@ -1,13 +1,16 @@
 package com.rpgproject.controller.newControllers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.model.world.World;
 
 import java.util.ArrayList;
@@ -37,7 +40,7 @@ public class WorldRenderer {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         renderDynamicBackground(batch, world);
-        batch.draw(world.getPlayer().getAnimation().getKeyFrame(elapsedTime, true), world.getPlayer().getX(), world.getPlayer().getY());
+        batch.draw(world.getPlayer().getRegion(elapsedTime), world.getPlayer().getX(), world.getPlayer().getY());
         renderDynamicForeground(batch, world);
         batch.end();
         renderer.render(world.getCurrentMap().getForegroundLayers());

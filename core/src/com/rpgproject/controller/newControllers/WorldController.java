@@ -25,5 +25,4 @@ public class WorldController {
         triggerController.update(delta, world);
     }
 
-
 }

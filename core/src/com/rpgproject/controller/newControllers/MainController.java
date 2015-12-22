@@ -80,4 +80,18 @@ public class MainController {
             gameController.movePlayer(0, 0);
     }
 
+    public void performAction()
+    {
+        gameController.performAction();
+    }
+
+    public void displayMessage(String message)
+    {
+        playScreen.setMessage(message);
+    }
+
+    public void hideMessage()
+    {
+        playScreen.hideDialog();
+    }
 }

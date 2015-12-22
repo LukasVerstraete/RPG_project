@@ -7,6 +7,7 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
+import com.rpgproject.model.world.actions.Action;
 import com.rpgproject.resources.Resources;
 
 import java.util.ArrayList;
@@ -20,11 +21,13 @@ public class World {
     private Player player;
     private WorldMap currentMap;
     private HashMap<String, WorldMap> maps;
+    private ArrayList<Action> actions;
 
     public World()
     {
         player = new Player(20, 20);
         maps = new HashMap<String, WorldMap>();
+        actions = new ArrayList<Action>();
         maps.put("testMap", new WorldMap("testMap"));
         maps.put("entrance", new WorldMap("entrance"));
         setCurrentMap("testMap");
@@ -44,6 +47,22 @@ public class World {
     public boolean checkCollision(Rectangle testRect)
     {
         return currentMap.checkCollision(testRect);
+    }
+
+    public void addAction(Action action)
+    {
+        if(action != null)
+            actions.add(action);
+    }
+
+    public ArrayList<Action> getActions()
+    {
+        return actions;
+    }
+
+    public void clearActions()
+    {
+        actions.clear();
     }
 
     public Player getPlayer()

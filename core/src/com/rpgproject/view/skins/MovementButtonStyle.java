@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.rpgproject.resources.Resources;
-import com.rpgproject.view.buttons.MovementButton;
 
 /**
  * Created by Lukas on 19-12-2015.
@@ -12,7 +11,7 @@ import com.rpgproject.view.buttons.MovementButton;
 public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
 
     public enum Direction {
-        UP, DOWN, LEFT, RIGHT
+        UP, DOWN, LEFT, RIGHT, ACTION
     }
 
     public MovementButtonStyle(Direction direction)
@@ -38,6 +37,9 @@ public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
                 break;
             case RIGHT:
                 up = skin.getDrawable("buttonRight");
+                break;
+            case ACTION:
+                up = skin.getDrawable("buttonAction");
                 break;
         }
     }
