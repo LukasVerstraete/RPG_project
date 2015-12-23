@@ -31,10 +31,12 @@ public class WorldMap {
     private int[] backgroundLayers;
     private int[] dynamicLayers;
     private int[] foregroundLayers;
+    private String name;
 
 
     public WorldMap(String map)
     {
+        this.name = map;
         this.map = new TmxMapLoader().load(Resources.getFile(map).path());
         mapBounds = new Rectangle();
         colliders = new ArrayList<Rectangle>();
@@ -205,5 +207,10 @@ public class WorldMap {
     public int getTileHeight()
     {
         return map.getProperties().get("tileheight", Integer.class);
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

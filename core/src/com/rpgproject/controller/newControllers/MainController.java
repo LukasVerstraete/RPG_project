@@ -2,6 +2,7 @@ package com.rpgproject.controller.newControllers;
 
 import com.rpgproject.RPGGame;
 import com.rpgproject.controller.newControllers.GameController;
+import com.rpgproject.utils.ConfigLoader;
 import com.rpgproject.view.screens.MainScreen;
 import com.rpgproject.view.screens.PlayScreen;
 
@@ -10,22 +11,24 @@ import com.rpgproject.view.screens.PlayScreen;
  */
 public class MainController {
 
-    MainScreen mainScreen;
-    PlayScreen playScreen;
+    private MainScreen mainScreen;
+    private PlayScreen playScreen;
 
     private RPGGame game;
+    private float width;
+    private float height;
 
     private GameController gameController;
 
-    public MainController(RPGGame game, float width, float height)
-    {
-        this.game = game;
-        mainScreen = new MainScreen(this, width, height);
-        playScreen = new PlayScreen(this, width, height);
+    private ConfigLoader config;
 
-        gameController = new GameController(this, width, height);
-        //loadMainMenu();
-        startGame();
+    public MainController(RPGGame game, ConfigLoader config)
+    {
+        this.config = config;
+        this.game = game;
+        mainScreen = new MainScreen(this, config.getViewportWidth(), config.getViewportHeight());
+        playScreen = new PlayScreen(this, config.getViewportWidth(), config.getViewportHeight());
+        config.setState(this);
     }
 
     public void loadMainMenu()
@@ -35,7 +38,15 @@ public class MainController {
 
     public void startGame()
     {
+        config.setCurrentSave("1");
+        config.startGame();
+        gameController = new GameController(this, config);
         game.setScreen(playScreen);
+    }
+
+    public void dispose()
+    {
+        config.saveGame(gameController.getWorld());
     }
 
     public void updateWorld(float delta)

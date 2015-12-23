@@ -9,6 +9,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
 import com.rpgproject.model.world.actions.Action;
 import com.rpgproject.resources.Resources;
+import com.rpgproject.utils.ConfigLoader;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,14 +24,13 @@ public class World {
     private HashMap<String, WorldMap> maps;
     private ArrayList<Action> actions;
 
-    public World()
+    public World(ConfigLoader config)
     {
-        player = new Player(20, 20);
-        maps = new HashMap<String, WorldMap>();
+        player = new Player();
+        maps = config.getMaps();
         actions = new ArrayList<Action>();
-        maps.put("testMap", new WorldMap("testMap"));
-        maps.put("entrance", new WorldMap("entrance"));
-        setCurrentMap("testMap");
+        currentMap = maps.get(config.getMap());
+        player.setPosition(config.getPlayerPosition());
     }
 
     public WorldMap getCurrentMap()

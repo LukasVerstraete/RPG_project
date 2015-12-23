@@ -2,7 +2,8 @@ package com.rpgproject.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.utils.XmlReader;
+import com.badlogic.gdx.utils.*;
+import com.badlogic.gdx.utils.StringBuilder;
 
 import org.w3c.dom.Document;
 
@@ -42,6 +43,7 @@ public class Utils {
         XmlReader xml = new XmlReader();
         XmlReader.Element root = null;
         try{
+            System.out.println(file);
             root = xml.parse(file);
         }
         catch(Exception e)

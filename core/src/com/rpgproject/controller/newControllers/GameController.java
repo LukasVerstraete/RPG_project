@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.rpgproject.model.world.World;
+import com.rpgproject.utils.ConfigLoader;
 
 /**
  * Created by Lukas on 13-12-2015.
@@ -24,12 +25,12 @@ public class GameController {
 
     private WorldRenderer renderer;
 
-    public GameController(MainController controller, float width, float height)
+    public GameController(MainController controller, ConfigLoader config)
     {
         this.mainController = controller;
 
-        world = new World();
-        camera = new OrthographicCamera(width, height);
+        world = new World(config);
+        camera = new OrthographicCamera(config.getViewportWidth(), config.getViewportHeight());
 
         worldController = new WorldController(world);
         cameraController = new CameraController(camera, 0.3f, world);
@@ -38,6 +39,11 @@ public class GameController {
         dialogController = new DialogController();
 
         renderer = new WorldRenderer(world);
+    }
+
+    public World getWorld()
+    {
+        return world;
     }
 
     public void updateWorld(float delta)

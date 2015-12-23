@@ -1,0 +1,22 @@
+<game>
+	<viewport width="800" height="450"/>
+	<state name="game" save="1"/>
+	<file name="defaultSkin" path="skins/syncopate/uiskin.json"/>
+	<file name="labelSkin" path="skins/default/uiskin.json"/>
+	<file name="entrance" path="maps/inkomhal.tmx"/>
+	<file name="testMap" path="maps/testmap.tmx"/>
+	<file name="label9Patch" path="sprites/ui/labelNinePatch.png"/>
+	<file name="playerAtlasFront" path="sprites/spritesheets/walkFront.atlas"/>
+	<file name="playerAtlasBack" path="sprites/spritesheets/walkBack.atlas"/>
+	<file name="playerAtlasLeft" path="sprites/spritesheets/walkLeft.atlas"/>
+	<file name="playerAtlasRight" path="sprites/spritesheets/walkRight.atlas"/>
+	<file name="navigationUI" path="sprites/ui/controlsPack/controls.atlas"/>
+	<file name="walkSound" path="audio/Footsteps_on_Cement-Tim_Fryer.mp3"/>
+	<string name="newGame" text="New Game"/>
+	<string name="loadGame" text="Load Game"/>
+	<map name="entrance"/>
+	<map name="testMap"/>
+	<save id="1" path="saves/save1.xml"/>
+	<save id="2" path="saves/save2.xml"/>
+	<save id="3" path="saves/save3.xml"/>
+</game>
