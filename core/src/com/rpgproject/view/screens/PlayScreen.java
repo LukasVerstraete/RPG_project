@@ -23,9 +23,9 @@ public class PlayScreen extends GameScreen
 {
     private GameLabel dialogLabel;
 
-    public PlayScreen(MainController controller)
+    public PlayScreen(MainController controller, float width, float height)
     {
-        super(controller);
+        super(controller, width, height);
         init();
     }
 
@@ -137,7 +137,7 @@ public class PlayScreen extends GameScreen
 
         Table tmp = new Table();
         tmp.align(Align.bottom | Align.left);
-        tmp.add(dialogLabel).width(Gdx.graphics.getWidth() - 160.0f);
+        tmp.add(dialogLabel).width(stage.getWidth() - 160.0f);
         stage.addActor(tmp);
     }
 

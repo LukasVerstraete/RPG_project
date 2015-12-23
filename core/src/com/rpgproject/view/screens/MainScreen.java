@@ -13,9 +13,9 @@ import com.rpgproject.view.ui.MainMenuButton;
  * Created by Lukas on 1-12-2015.
  */
 public class MainScreen extends GameScreen {
-    public MainScreen(MainController controller)
+    public MainScreen(MainController controller, float width, float height)
     {
-        super(controller);
+        super(controller, width, height);
         init();
     }
     private void init()

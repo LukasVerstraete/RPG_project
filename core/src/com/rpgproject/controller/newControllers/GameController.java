@@ -24,12 +24,12 @@ public class GameController {
 
     private WorldRenderer renderer;
 
-    public GameController(MainController controller)
+    public GameController(MainController controller, float width, float height)
     {
         this.mainController = controller;
 
         world = new World();
-        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        camera = new OrthographicCamera(width, height);
 
         worldController = new WorldController(world);
         cameraController = new CameraController(camera, 0.3f, world);

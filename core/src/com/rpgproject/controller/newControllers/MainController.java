@@ -17,13 +17,13 @@ public class MainController {
 
     private GameController gameController;
 
-    public MainController(RPGGame game)
+    public MainController(RPGGame game, float width, float height)
     {
         this.game = game;
-        mainScreen = new MainScreen(this);
-        playScreen = new PlayScreen(this);
+        mainScreen = new MainScreen(this, width, height);
+        playScreen = new PlayScreen(this, width, height);
 
-        gameController = new GameController(this);
+        gameController = new GameController(this, width, height);
         //loadMainMenu();
         startGame();
     }

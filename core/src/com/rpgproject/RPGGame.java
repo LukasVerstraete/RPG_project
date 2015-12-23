@@ -16,18 +16,14 @@ public class RPGGame extends Game {
 
     public static final boolean DEBUG = false;
 
-    MainScreen mainScreen;
     MainController controller;
 
     SpriteBatch batch;
-    Texture img;
-
-    Sprite sprite;
 
     @Override
     public void create() {
         initResources();
-        controller = new MainController(this);
+        controller = new MainController(this, 800, 480);
         batch = new SpriteBatch();
         Gdx.gl.glClearColor(1, 1, 1, 1);
     }
