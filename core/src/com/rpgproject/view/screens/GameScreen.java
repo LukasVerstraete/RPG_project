@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import com.rpgproject.controller.newControllers.MainController;
 
@@ -18,7 +19,7 @@ public abstract class GameScreen implements Screen {
     public GameScreen(MainController controller, float width, float height)
     {
         this.controller = controller;
-        stage = new Stage(new FillViewport(width, height));
+        stage = new Stage(new FitViewport(width, height));
     }
 
     @Override

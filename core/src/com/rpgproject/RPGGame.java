@@ -36,7 +36,7 @@ public class RPGGame extends Game {
     @Override
     public void pause()
     {
-
+        controller.pause();
         super.pause();
     }
 
@@ -81,16 +81,18 @@ public class RPGGame extends Game {
     private void checkFiles()
     {
         FileHandle file = Gdx.files.local("/saves/default-config.xml");
-        System.out.println(file.exists());
+        //System.out.println(file.exists());
         if(file.exists())
             return;
         FileHandle configFile = Gdx.files.internal("saves/default-config.xml");
+        FileHandle save0 = Gdx.files.internal("saves/defaultSave.xml");
         FileHandle save1 = Gdx.files.internal("saves/save1.xml");
         FileHandle save2 = Gdx.files.internal("saves/save2.xml");
         FileHandle save3 = Gdx.files.internal("saves/save3.xml");
         file = Gdx.files.local("saves");
         file.mkdirs();
         configFile.copyTo(file);
+        save0.copyTo(file);
         save1.copyTo(file);
         save2.copyTo(file);
         save3.copyTo(file);
@@ -98,6 +100,7 @@ public class RPGGame extends Game {
 
     @Override
     public void render() {
+        Gdx.gl.glClear(Gdx.gl.GL_COLOR_BUFFER_BIT);
         getScreen().render(Gdx.graphics.getDeltaTime());
     }
 
@@ -106,13 +109,4 @@ public class RPGGame extends Game {
         return batch;
     }
 
-	public void startGame()
-	{
-		controller.startGame();
-	}
-
-	public void loadMainMenu()
-	{
-		controller.loadMainMenu();
-	}
 }

@@ -1,10 +1,7 @@
 package com.rpgproject.view.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
@@ -12,9 +9,9 @@ import com.rpgproject.RPGGame;
 import com.rpgproject.controller.newControllers.MainController;
 import com.rpgproject.resources.Resources;
 import com.rpgproject.view.ui.GameLabel;
-import com.rpgproject.view.ui.MovementButton;
-import com.rpgproject.view.skins.InGameLabelStyle;
+import com.rpgproject.view.ui.InGameButton;
 import com.rpgproject.view.skins.MovementButtonStyle;
+import com.rpgproject.view.ui.MainMenuButton;
 
 /**
  * Created by Lukas on 4-12-2015.
@@ -22,6 +19,7 @@ import com.rpgproject.view.skins.MovementButtonStyle;
 public class PlayScreen extends GameScreen
 {
     private GameLabel dialogLabel;
+    private InGameButton actionButton;
 
     public PlayScreen(MainController controller, float width, float height)
     {
@@ -36,13 +34,13 @@ public class PlayScreen extends GameScreen
         table.setDebug(RPGGame.DEBUG);
         table.align(Align.bottom | Align.right);
 
-        MovementButton upButton = new MovementButton(MovementButtonStyle.Direction.UP);
-        MovementButton downButton = new MovementButton(MovementButtonStyle.Direction.DOWN);
-        MovementButton leftButton = new MovementButton(MovementButtonStyle.Direction.LEFT);
-        MovementButton rightButton = new MovementButton(MovementButtonStyle.Direction.RIGHT);
-        MovementButton actionButton = new MovementButton(MovementButtonStyle.Direction.ACTION);
+        InGameButton upButton = new InGameButton(MovementButtonStyle.Direction.UP);
+        InGameButton downButton = new InGameButton(MovementButtonStyle.Direction.DOWN);
+        InGameButton leftButton = new InGameButton(MovementButtonStyle.Direction.LEFT);
+        InGameButton rightButton = new InGameButton(MovementButtonStyle.Direction.RIGHT);
+        actionButton = new InGameButton(MovementButtonStyle.Direction.ACTION);
 
-        dialogLabel = new GameLabel("coolio");
+        dialogLabel = new GameLabel("");
         dialogLabel.setWrap(true);
         dialogLabel.setDebug(RPGGame.DEBUG);
         //dialogLabel.setVisible(false);
@@ -139,10 +137,31 @@ public class PlayScreen extends GameScreen
         tmp.align(Align.bottom | Align.left);
         tmp.add(dialogLabel).width(stage.getWidth() - 160.0f);
         stage.addActor(tmp);
+
+        Table homeButtonTable = new Table();
+        homeButtonTable.setFillParent(true);
+        homeButtonTable.setDebug(RPGGame.DEBUG);
+        homeButtonTable.align(Align.top | Align.left);
+
+        MainMenuButton homeButton = new MainMenuButton(Resources.getString("menu"));
+        homeButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                controller.loadMainMenu();
+            }
+        });
+
+        homeButtonTable.add(homeButton);
+
+        stage.addActor(homeButtonTable);
     }
 
     @Override
     public void update(float delta) {
+        if(controller.actionsPossible())
+            actionButton.setDisabled(false);
+        else
+            actionButton.setDisabled(true);
         controller.updateWorld(delta);
     }
 

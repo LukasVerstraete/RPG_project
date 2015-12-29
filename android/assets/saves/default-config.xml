@@ -1,6 +1,6 @@
 <game>
 	<viewport width="800" height="450"/>
-	<state name="game" save="1"/>
+	<state name="menu" save="1"/>
 	<file name="defaultSkin" path="skins/syncopate/uiskin.json"/>
 	<file name="labelSkin" path="skins/default/uiskin.json"/>
 	<file name="entrance" path="maps/inkomhal.tmx"/>
@@ -14,8 +14,12 @@
 	<file name="walkSound" path="audio/Footsteps_on_Cement-Tim_Fryer.mp3"/>
 	<string name="newGame" text="New Game"/>
 	<string name="loadGame" text="Load Game"/>
+	<string name="startGame" text="load new game"/>
+	<string name="continueGame" text="Continue Game"/>
+	<string name="menu" text="menu"/>
 	<map name="entrance"/>
 	<map name="testMap"/>
+	<save id="0" path="saves/defaultSave.xml"/>
 	<save id="1" path="saves/save1.xml"/>
 	<save id="2" path="saves/save2.xml"/>
 	<save id="3" path="saves/save3.xml"/>

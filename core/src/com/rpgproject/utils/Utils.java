@@ -43,8 +43,9 @@ public class Utils {
         XmlReader xml = new XmlReader();
         XmlReader.Element root = null;
         try{
-            System.out.println(file);
+            System.out.println(file.exists());
             root = xml.parse(file);
+            //System.out.println(root);
         }
         catch(Exception e)
         {

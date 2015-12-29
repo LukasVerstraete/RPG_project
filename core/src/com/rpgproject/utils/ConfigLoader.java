@@ -86,7 +86,7 @@ public class ConfigLoader {
     public void setState(MainController controller)
     {
         if(isGameActive)
-            controller.startGame();
+            controller.startGame(root.getChildByName("state").getAttribute("save"), false);
         else
             controller.loadMainMenu();
     }
@@ -132,6 +132,25 @@ public class ConfigLoader {
         }
     }
 
+    public void resetSave(String id)
+    {
+        FileHandle emptySave = null;
+        FileHandle targetSave = null;
+        for(Element save : saves)
+        {
+            if(save.getAttribute("id").equals("0")) {
+                emptySave = Gdx.files.local(save.getAttribute("path"));
+            }
+        }
+        for(Element save : saves)
+        {
+            if(save.getAttribute("id").equals(id)) {
+                targetSave = Gdx.files.local(save.getAttribute("path"));
+            }
+        }
+        emptySave.copyTo(targetSave);
+    }
+
     public void startGame()
     {
         isGameActive = true;
@@ -140,6 +159,23 @@ public class ConfigLoader {
     }
 
     public void saveGame(World world)
+    {
+        savePlayerPosition(world);
+        resetConfig();
+        XmlWriter writerconfig = new XmlWriter(file.writer(false));
+        XmlWriter writersave = new XmlWriter(currentSaveFile.writer(false));
+
+        try {
+            writerconfig.write(root.toString());
+            writersave.write(currentSave.toString());
+            writerconfig.close();
+            writersave.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveState(World world)
     {
         savePlayerPosition(world);
         XmlWriter writerconfig = new XmlWriter(file.writer(false));
@@ -153,6 +189,11 @@ public class ConfigLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void resetConfig()
+    {
+        root.getChildByName("state").setAttribute("name", "menu");
     }
 
     private void savePlayerPosition(World world)

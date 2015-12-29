@@ -10,22 +10,21 @@ import com.rpgproject.resources.Resources;
 import com.rpgproject.view.ui.MainMenuButton;
 
 /**
- * Created by lukas on 23-12-2015.
+ * Created by lukas on 26-12-2015.
  */
-public class LoadGameScreen extends GameScreen {
+public class ContinueGameScreen extends GameScreen {
 
-
-    public LoadGameScreen(MainController controller, float width, float height) {
+    public ContinueGameScreen(MainController controller, float width, float height) {
         super(controller, width, height);
         init();
     }
 
     private void init()
     {
-        Table selectSaveTable = new Table();
-        selectSaveTable.setFillParent(true);
-        selectSaveTable.setDebug(RPGGame.DEBUG);
-        selectSaveTable.align(Align.center);
+        Table table = new Table();
+        table.setFillParent(true);
+        table.setDebug(RPGGame.DEBUG);
+        table.align(Align.center);
 
         Table homeButtonTable = new Table();
         homeButtonTable.setFillParent(true);
@@ -33,7 +32,7 @@ public class LoadGameScreen extends GameScreen {
         homeButtonTable.align(Align.top | Align.left);
 
         MainMenuButton homeButton = new MainMenuButton(Resources.getString("menu"));
-        homeButton.addListener(new ClickListener(){
+        homeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 controller.loadMainMenu();
@@ -44,39 +43,38 @@ public class LoadGameScreen extends GameScreen {
 
         stage.addActor(homeButtonTable);
 
-        MainMenuButton save1Button = new MainMenuButton(Resources.getString("startGame"));
+        MainMenuButton save1Button = new MainMenuButton(Resources.getString("continueGame"));
         save1Button.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.startGame("1", true);
+                controller.startGame("1", false);
             }
         });
 
-        MainMenuButton save2Button = new MainMenuButton(Resources.getString("startGame"));
-        save2Button.addListener(new ClickListener() {
+        MainMenuButton save2Button = new MainMenuButton(Resources.getString("continueGame"));
+        save2Button.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.startGame("2", true);
+                controller.startGame("2", false);
             }
         });
 
-        MainMenuButton save3Button = new MainMenuButton(Resources.getString("startGame"));
-        save3Button.addListener(new ClickListener() {
+        MainMenuButton save3Button = new MainMenuButton(Resources.getString("continueGame"));
+        save3Button.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.startGame("3", true);
+                controller.startGame("3", false);
             }
         });
 
-        selectSaveTable.add(save1Button).fill().padBottom(30).width(250).height(50);
-        selectSaveTable.row();
-        selectSaveTable.add(save2Button).fill().padBottom(30).width(250).height(50);
-        selectSaveTable.row();
-        selectSaveTable.add(save3Button).fill().padBottom(30).width(250).height(50);
-        selectSaveTable.row();
+        table.add(save1Button).fill().padBottom(30).width(250).height(50);
+        table.row();
+        table.add(save2Button).fill().padBottom(30).width(250).height(50);
+        table.row();
+        table.add(save3Button).fill().padBottom(30).width(250).height(50);
+        table.row();
 
-
-        stage.addActor(selectSaveTable);
+        stage.addActor(table);
     }
 
     @Override

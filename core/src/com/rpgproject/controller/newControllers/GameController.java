@@ -48,10 +48,11 @@ public class GameController {
 
     public void updateWorld(float delta)
     {
+        actionController.update(delta, world, this);
         worldController.update(delta, world);
         cameraController.update(delta, camera, world);
         dialogController.update(world);
-        actionController.update(delta, world, this);
+
     }
 
     public void drawWorld(SpriteBatch batch) {
@@ -87,5 +88,11 @@ public class GameController {
     public void hideDialog()
     {
         mainController.hideMessage();
+    }
+
+    public boolean actionsPossible()
+    {
+        System.out.println(world.getActions().size());
+        return world.getActions().size() > 1;
     }
 }

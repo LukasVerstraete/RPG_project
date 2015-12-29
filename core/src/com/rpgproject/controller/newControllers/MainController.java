@@ -3,6 +3,8 @@ package com.rpgproject.controller.newControllers;
 import com.rpgproject.RPGGame;
 import com.rpgproject.controller.newControllers.GameController;
 import com.rpgproject.utils.ConfigLoader;
+import com.rpgproject.view.screens.ContinueGameScreen;
+import com.rpgproject.view.screens.LoadGameScreen;
 import com.rpgproject.view.screens.MainScreen;
 import com.rpgproject.view.screens.PlayScreen;
 
@@ -12,6 +14,8 @@ import com.rpgproject.view.screens.PlayScreen;
 public class MainController {
 
     private MainScreen mainScreen;
+    private LoadGameScreen loadScreen;
+    private ContinueGameScreen continueScreen;
     private PlayScreen playScreen;
 
     private RPGGame game;
@@ -27,6 +31,8 @@ public class MainController {
         this.config = config;
         this.game = game;
         mainScreen = new MainScreen(this, config.getViewportWidth(), config.getViewportHeight());
+        loadScreen = new LoadGameScreen(this, config.getViewportWidth(), config.getViewportHeight());
+        continueScreen = new ContinueGameScreen(this, config.getViewportWidth(), config.getViewportHeight());
         playScreen = new PlayScreen(this, config.getViewportWidth(), config.getViewportHeight());
         config.setState(this);
     }
@@ -36,9 +42,21 @@ public class MainController {
         game.setScreen(mainScreen);
     }
 
-    public void startGame()
+    public void loadSelectSaveMenu()
     {
-        config.setCurrentSave("1");
+        game.setScreen(loadScreen);
+    }
+
+    public void loadContinueSaveMenu()
+    {
+        game.setScreen(continueScreen);
+    }
+
+    public void startGame(String save, boolean reset)
+    {
+        if(reset)
+            config.resetSave(save);
+        config.setCurrentSave(save);
         config.startGame();
         gameController = new GameController(this, config);
         game.setScreen(playScreen);
@@ -46,7 +64,14 @@ public class MainController {
 
     public void dispose()
     {
-        config.saveGame(gameController.getWorld());
+        if(gameController != null)
+            config.saveGame(gameController.getWorld());
+    }
+
+    public void pause()
+    {
+        if(gameController != null)
+            config.saveState(gameController.getWorld());
     }
 
     public void updateWorld(float delta)
@@ -104,5 +129,10 @@ public class MainController {
     public void hideMessage()
     {
         playScreen.hideDialog();
+    }
+
+    public boolean actionsPossible()
+    {
+        return gameController.actionsPossible();
     }
 }

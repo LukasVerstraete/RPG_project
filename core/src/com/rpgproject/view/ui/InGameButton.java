@@ -8,9 +8,9 @@ import com.rpgproject.view.skins.MovementButtonStyle;
 /**
  * Created by Lukas on 18-12-2015.
  */
-public class MovementButton extends ImageButton {
+public class InGameButton extends ImageButton {
 
-    public MovementButton(MovementButtonStyle.Direction direction) {
+    public InGameButton(MovementButtonStyle.Direction direction) {
         super(new MovementButtonStyle(direction));
     }
 }

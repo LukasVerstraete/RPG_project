@@ -39,7 +39,8 @@ public class MovementButtonStyle extends ImageButton.ImageButtonStyle {
                 up = skin.getDrawable("buttonRight");
                 break;
             case ACTION:
-                up = skin.getDrawable("buttonAction");
+                disabled = skin.getDrawable("buttonAction");
+                up = skin.getDrawable("buttonActionReady");
                 break;
         }
     }

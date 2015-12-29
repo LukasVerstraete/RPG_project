@@ -29,11 +29,17 @@ public class MainScreen extends GameScreen {
         newGameButton.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                controller.startGame();
+                controller.loadSelectSaveMenu();
             }
         });
 
         MainMenuButton continueGameButton = new MainMenuButton(Resources.getString("loadGame"));
+        continueGameButton.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                controller.loadContinueSaveMenu();
+            }
+        });
 
         table.add(newGameButton).fill().padBottom(30).width(250).height(50);
         table.row();
