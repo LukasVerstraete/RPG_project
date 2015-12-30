@@ -147,6 +147,7 @@ public class PlayScreen extends GameScreen
         homeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                controller.pause();
                 controller.loadMainMenu();
             }
         });

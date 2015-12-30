@@ -92,7 +92,6 @@ public class GameController {
 
     public boolean actionsPossible()
     {
-        System.out.println(world.getActions().size());
         return world.getActions().size() > 1;
     }
 }
